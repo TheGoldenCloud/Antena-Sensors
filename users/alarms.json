@@ -1,0 +1,12 @@
+{
+    "alarmi":[
+        {
+            "AlarmBr": "1",
+            "Naziv": "Greška u radu"
+        },
+        {
+            "AlarmBr": "2",
+            "Naziv": "Greška u isključenju"
+        }
+    ]
+}

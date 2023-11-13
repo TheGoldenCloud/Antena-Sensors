@@ -1,0 +1,1761 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.rtl.min.css" integrity="sha384-dc2NSrAXbAkjrdm9IYrX10fQq9SDG6Vjz7nQVKdKcJl3pC+k37e7qJR5MVSCS+wR" crossorigin="anonymous">
+
+    <title>Antene</title>
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/antene">NI7460 Deli Jovan</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/antene">Antene</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/alarmi">Alarmi</a>
+            </li>
+            <!-- Korisnik izbrisan link, vrati u slucaju nadogradnje. Ostale funkc postoje-->
+            <li class="nav-item">
+              <a class="nav-link active" id="odjavalink" href="/odjava">Odjava</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <br> 
+
+    <div class="container">
+      <h1>Pregled antena</h1>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th scope="row" style='text-align:center; vertical-align:middle'>Temperatura spoljnjeg vazduha:</th>
+            <td style='text-align:center; vertical-align:middle'><span id = "spoljasnjaTemp"></span><span>°C</span></td>
+          </tr>
+          <tr>
+            <th scope="row" style='text-align:center; vertical-align:middle'>Temperatura u ormaru:</th>
+            <td style='text-align:center; vertical-align:middle'><span id = "spoljasnjaTempUorm"></span><span>°C</span></td>
+          </tr>
+          <tr>
+            <th scope="row" style='text-align:center; vertical-align:middle'>Temperatura testna:</th>
+            <td style='text-align:center; vertical-align:middle'><span id = "testMer"></span><span>°C</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th scope="row" style='text-align:center; vertical-align:middle'>Napon L1</th>
+            <td style='text-align:center; vertical-align:middle'><span id = "oNap1"></span><span>V</span></td>
+          </tr>
+
+          <tr>
+            <th scope="row" style='text-align:center; vertical-align:middle'>Napon L2</th>
+            <td style='text-align:center; vertical-align:middle'><span id = "oNap2"></span><span>V</span></td>
+          </tr>
+
+          <tr>
+            <th scope="row" style='text-align:center; vertical-align:middle'>Napon L3</th>
+            <td style='text-align:center; vertical-align:middle'><span id = "oNap3"></span><span>V</span></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <!-- Unosi -->
+
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th scope="row" style='text-align:center; vertical-align:middle'>Gornja temperatura</th>
+            <td style='text-align:center; vertical-align:middle'><span  id = "outGornjaT"></span><span>°C</span></td>
+          </tr>
+
+          <tr>
+            <th scope="row" style='text-align:center; vertical-align:middle'>Donja temperatura</th>
+            <td style='text-align:center; vertical-align:middle'><span id = "outDonjaT"></span><span>°C</span></td>
+          </tr>
+
+          <tr>
+            <th scope="row" style='text-align:center; vertical-align:middle'>Histerezis</th>
+            <td style='text-align:center; vertical-align:middle'><span id = "outHist"></span><span>°C</span></td>
+          </tr>
+
+          <tr>
+            <th scope="row" style='text-align:center; vertical-align:middle'>Sat provere</th>
+            <td style='text-align:center; vertical-align:middle'><span id = "outSat"></span><span>H</span></td>
+          </tr>
+
+          <tr>
+            <th scope="row" style='text-align:center; vertical-align:middle'>Rad minuta u satu</th>
+            <td style='text-align:center; vertical-align:middle'><span id = "outRadMin"></span><span>Min</span></td>
+          </tr>
+          
+
+        </tbody>
+      </table>
+
+      
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Goranja temperatura" id="gornjaVred"></th>
+            <td style='text-align:center; vertical-align:middle'><a class="btn btn-primary" href="/monitor/write_r/10027/" onclick="{
+  
+              var inputVal = document.getElementById('gornjaVred').value;
+              
+              location.href = this.href + inputVal; return false;
+              
+              }"> Pošalji </a></td>
+          </tr>
+
+          <tr>
+            <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Donja temperatura" id="donjaVred"></th>
+            <td style='text-align:center; vertical-align:middle'><a class="btn btn-primary" href="/monitor/write_r/10028/" onclick="{
+  
+              var inputVal = document.getElementById('donjaVred').value;
+              
+              location.href = this.href + inputVal; return false;
+              
+              }"> Pošalji </a></td>
+          </tr>
+
+          <tr>
+            <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Histerezis" id="hist"></th>
+            <td style='text-align:center; vertical-align:middle'><a class="btn btn-primary" href="/monitor/write_r/10026/" onclick="{
+  
+              var inputVal = document.getElementById('hist').value;
+              
+              location.href = this.href + inputVal; return false;
+              
+              }"> Pošalji </a></td>
+          </tr>
+
+          <tr>
+            <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Sat provere" id="satProv"></th>
+            <td style='text-align:center; vertical-align:middle'><a class="btn btn-primary" href="/monitor/write/6577/" onclick="{
+  
+              var inputVal = document.getElementById('satProv').value;
+              
+              location.href = this.href + inputVal; return false;
+              
+              }"> Pošalji </a></td>
+          </tr>
+
+          <tr>
+            <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Rad minuta u satu" id="radMinSat"></th>
+            <td style='text-align:center; vertical-align:middle'><a class="btn btn-primary" href="/monitor/write/6578/" onclick="{
+  
+              var inputVal = document.getElementById('radMinSat').value;
+              
+              location.href = this.href + inputVal; return false;
+              
+              }"> Pošalji </a></td>
+          </tr>
+          
+
+        </tbody>
+      </table>
+
+      <!-- Unosi -->
+
+
+    </div>
+
+    <br>
+    <!-- Antene -->
+
+    <div class="row">
+      <div class="col">
+        <div id="antena1">
+          <div class="card text-center" style="width: 18rem;">
+            <img class="card-img-top" id = "imgPlace1" src="/nemaradio.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Grejač antene 1</h5>
+              <h5>NI4093  Rudna glava</h5>
+              <table class="table table-bordered">
+                <tbody>
+              
+                  <tr> 
+                    <th scope="row">Status:</th>
+                    <td id = "statusGrejaca1"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Režim:</th>
+                    <td id = "rezimGrejaca1"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Stanje:</th>
+                    <td id = "stanjeGrejaca1"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Struja:</th>
+                    <td><span id = "strujagrejaca1"></span><span>A</span></td>
+                  </tr>
+                  
+                  <tr>
+                    <th scope="row">Napon:</th>
+                    <td><span id = "napongrejaca1"></span><span>V</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Nominalna struja:</th>
+                    <td><span id = "nnv1"></span><span>A</span></td>
+                  </tr>
+
+
+                  <div class="row"> 
+                    <div class="col-4">
+                      <a href="/monitor/write/6475/1" id="btnUkljU1" class="btn btn-danger">U upotrebi</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6476/0" id="btnRucMod1" class="btn btn-warning">Ručni mod</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6477/1" id="btnRucU1" class="btn btn-primary">Uključi grejač</a>
+                    </div>
+                  </div>
+
+                  <br>
+
+                  <div class="row">
+                    <div class="col-4">
+                      <a href="/monitor/write/6475/0" id="btnIskljU1" class="btn btn-danger">Van upotrebe</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6476/1" id="btnAutoMod1" class="btn btn-warning">Auto mod</a>
+                    </div> 
+                    <div class="col-4">
+                      <a href="/monitor/write/6477/0" id="btnRucI1" class="btn btn-primary">Isključi grejač</a>
+                    </div>
+                    
+                  </div>
+                  <br>
+                </tbody>
+              </table>
+
+              
+
+              <table>
+                <tbody>
+                  <tr>
+                    <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Nominalna struja" id="nomVred1"></th>
+                    <td style='text-align:center; vertical-align:middle'><a class="btn btn-danger" href="/monitor/write_r/10029/" onclick="{
+              
+                      var inputVal = document.getElementById('nomVred1').value;
+                      
+                      location.href = this.href + inputVal; return false;
+                      
+                      }"> Pošalji </a></td>
+                  </tr>
+                </tbody>
+            </table>
+              
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div id="antena1">
+          <div class="card text-center" style="width: 18rem;">
+            <img class="card-img-top" id = "imgPlace2" src="/nemaradio.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Grejač antene 2</h5>
+              <h5>NI7454  Tupižnica</h5>
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th scope="row">Status:</th>
+                    <td id = "statusGrejaca2"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Režim:</th>
+                    <td id = "rezimGrejaca2"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Stanje:</th>
+                    <td id = "stanjeGrejaca2"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Struja:</th>
+                    <td><span id = "strujagrejaca2"></span><span>A</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Napon:</th>
+                    <td><span id = "napongrejaca2"></span><span>V</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Nominalna struja:</th>
+                    <td><span id = "nnv2"></span><span>A</span></td>
+                  </tr>
+
+
+                  <div class="row">
+                    <div class="col-4">
+                      <a href="/monitor/write/6483/1" id="btnUkljU2" class="btn btn-danger">U upotrebi</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6484/0" id="btnRucMod2" class="btn btn-warning">Ručni mod</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6485/1" id="btnRucU2" class="btn btn-primary">Uključi grejač</a>
+                    </div>
+                  </div>
+
+                  <br>
+
+                  <div class="row">
+                    <div class="col-4">
+                      <a href="/monitor/write/6483/0" id="btnIskljU2" class="btn btn-danger">Van upotrebe</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6484/1" id="btnAutoMod2" class="btn btn-warning">Auto mod</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6485/0" id="btnRucI2" class="btn btn-primary">Isključi grejač</a>
+                    </div>
+                  </div>
+                  <br>
+
+
+                </tbody>
+              </table>
+              <!-- <div class="row"> 
+                <div class="col-12">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Nominalna struja" id = "inputNom2" aria-describedby="basic-addon2">
+                    <button class="input-group-text" id="btnNom2">Pošalji</button>
+                  </div>
+                </div>
+              </div> -->
+
+              <table>
+                <tbody>
+                  <tr>
+                    <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Nominalna struja" id="nomVred2"></th>
+                    <td style='text-align:center; vertical-align:middle'><a class="btn btn-danger" href="/monitor/write_r/10030/" onclick="{
+              
+                      var inputVal = document.getElementById('nomVred2').value;
+                      
+                      location.href = this.href + inputVal; return false;
+                      
+                      }"> Pošalji </a></td>
+                  </tr>
+                </tbody>
+            </table>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div id="antena1">
+          <div class="card text-center" style="width: 18rem;">
+            <img class="card-img-top" id = "imgPlace3" src="/nemaradio.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Grejač antene 3</h5>
+              <h5>NI4092  Majdanpek</h5>
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th scope="row">Status:</th>
+                    <td id = "statusGrejaca3"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Režim:</th>
+                    <td id = "rezimGrejaca3"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Stanje:</th>
+                    <td id = "stanjeGrejaca3"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Struja:</th>
+                    <td><span id = "strujagrejaca3"></span><span>A</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Napon:</th>
+                    <td><span id = "napongrejaca3"></span><span>V</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Nominalna struja:</th>
+                    <td><span id = "nnv3"></span><span>A</span></td>
+                  </tr>
+
+                  <div class="row">
+                    <div class="col-4">
+                      <a href="/monitor/write/6491/1" id="btnUkljU3" class="btn btn-danger">U upotrebi</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6492/0" id="btnRucMod3" class="btn btn-warning">Ručni mod</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6493/1" id="btnRucU3" class="btn btn-primary">Uključi grejač</a>
+                    </div>
+                  </div>
+
+                  <br>
+
+                  <div class="row">
+                    <div class="col-4">
+                      <a href="/monitor/write/6491/0" id="btnIskljU3" class="btn btn-danger">Van upotrebe</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6492/1" id="btnAutoMod3" class="btn btn-warning">Auto mod</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6493/0" id="btnRucI3" class="btn btn-primary">Isključi grejač</a>
+                    </div>
+                  </div>
+
+
+                  <br>
+
+                  
+                </tbody>
+              </table>
+              <!-- <div class="row"> 
+                <div class="col-12">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Nominalna struja" id = "inputNom3" aria-describedby="basic-addon2">
+                    <button class="input-group-text" id="btnNom3">Pošalji</button>
+                  </div>
+                </div>
+              </div> -->
+              <table>
+                <tbody>
+                  <tr>
+                    <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Nominalna struja" id="nomVred3"></th>
+                    <td style='text-align:center; vertical-align:middle'><a class="btn btn-danger" href="/monitor/write_r/10031/" onclick="{
+              
+                      var inputVal = document.getElementById('nomVred3').value;
+                      
+                      location.href = this.href + inputVal; return false;
+                      
+                      }"> Pošalji </a></td>
+                  </tr>
+                </tbody>
+            </table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div id="antena1">
+          <div class="card text-center" style="width: 18rem;">
+            <img class="card-img-top" id = "imgPlace4" src="/nemaradio.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Grejač antene 4</h5>
+              <h5>NI4081  Bor1</h5>
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th scope="row">Status:</th>
+                    <td id = "statusGrejaca4"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Režim:</th>
+                    <td id = "rezimGrejaca4"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Stanje:</th>
+                    <td id = "stanjeGrejaca4"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Struja:</th>
+                    <td><span id = "strujagrejaca4"></span><span>A</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Napon:</th>
+                    <td><span id = "napongrejaca4"></span><span>V</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Nominalna struja:</th>
+                    <td><span id = "nnv4"></span><span>A</span></td>
+                  </tr>
+                  
+                  <div class="row">
+                    <div class="col-4">
+                      <a href="/monitor/write/6499/1" id="btnUkljU4" class="btn btn-danger">U upotrebi</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6500/0" id="btnRucMod4" class="btn btn-warning">Ručni mod</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6501/1" id="btnRucU4" class="btn btn-primary">Uključi grejač</a>
+                    </div>
+                  </div>
+
+                  <br>
+
+                  <div class="row">
+                    <div class="col-4">
+                      <a href="/monitor/write/6499/0" id="btnIskljU4" class="btn btn-danger">Van upotrebe</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6500/1" id="btnAutoMod4" class="btn btn-warning">Auto mod</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6501/0" id="btnRucI4" class="btn btn-primary">Isključi grejač</a>
+                    </div>
+                  </div>
+
+                  <br>
+
+                </tbody>
+              </table>
+
+              <!-- <div class="row"> 
+                <div class="col-12">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Nominalna struja" id = "inputNom4" aria-describedby="basic-addon2">
+                    <button class="input-group-text" id="btnNom4">Pošalji</button>
+                  </div>
+                </div>
+              </div> -->
+
+              <table>
+                <tbody>
+                  <tr>
+                    <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Nominalna struja" id="nomVred4"></th>
+                    <td style='text-align:center; vertical-align:middle'><a class="btn btn-danger" href="/monitor/write_r/10032/" onclick="{
+              
+                      var inputVal = document.getElementById('nomVred4').value;
+                      
+                      location.href = this.href + inputVal; return false;
+                      
+                      }"> Pošalji </a></td>
+                  </tr>
+                </tbody>
+            </table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div id="antena1">
+          <div class="card text-center" style="width: 18rem;">
+            <img class="card-img-top" id = "imgPlace5" src="/nemaradio.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Grejač antene 5</h5>
+              <h5>NI4101  Mihajlovac</h5>
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th scope="row">Status:</th>
+                    <td id = "statusGrejaca5"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Režim:</th>
+                    <td id = "rezimGrejaca5"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Stanje:</th>
+                    <td id = "stanjeGrejaca5"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Struja:</th>
+                    <td><span id = "strujagrejaca5"></span><span>A</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Napon:</th>
+                    <td><span id = "napongrejaca5"></span><span>V</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Nominalna struja:</th>
+                    <td><span id = "nnv5"></span><span>A</span></td>
+                  </tr>
+                  
+                  <div class="row">
+                    <div class="col-4">
+                      <a href="/monitor/write/6507/1" id="btnUkljU5" class="btn btn-danger">U upotrebi</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6508/0" id="btnRucMod5" class="btn btn-warning">Ručni mod</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6509/1" id="btnRucU5" class="btn btn-primary">Uključi grejač</a>
+                    </div>
+                  </div>
+
+                  <br>
+
+                  <div class="row">
+                    <div class="col-4">
+                      <a href="/monitor/write/6507/0" id="btnIskljU5" class="btn btn-danger">Van upotrebe</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6508/1" id="btnAutoMod5" class="btn btn-warning">Auto mod</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6509/0" id="btnRucI5" class="btn btn-primary">Isključi grejač</a>
+                    </div>
+                  </div>
+
+                  <br>
+
+                </tbody>
+              </table>
+
+              <!-- <div class="row"> 
+                <div class="col-12">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Nominalna struja" id = "inputNom5" aria-describedby="basic-addon2">
+                    <button class="input-group-text" id="btnNom5">Pošalji</button>
+                  </div>
+                </div>
+              </div> -->
+              <table>
+                <tbody>
+                  <tr>
+                    <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Nominalna struja" id="nomVred5"></th>
+                    <td style='text-align:center; vertical-align:middle'><a class="btn btn-danger" href="/monitor/write_r/10033/" onclick="{
+              
+                      var inputVal = document.getElementById('nomVred5').value;
+                      
+                      location.href = this.href + inputVal; return false;
+                      
+                      }"> Pošalji </a></td>
+                  </tr>
+                </tbody>
+            </table>
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div id="antena1">
+          <div class="card text-center" style="width: 18rem;">
+            <img class="card-img-top" id = "imgPlace6" src="/nemaradio.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Grejač antene 6</h5>
+              <h5>NI4304  Debeli lug</h5>
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th scope="row">Status:</th>
+                    <td id = "statusGrejaca6"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Režim:</th>
+                    <td id = "rezimGrejaca6"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Stanje:</th>
+                    <td id = "stanjeGrejaca6"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Struja:</th>
+                    <td><span id = "strujagrejaca6"></span><span>A</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Napon:</th>
+                    <td><span id = "napongrejaca6"></span><span>V</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Nominalna struja:</th>
+                    <td><span id = "nnv6"></span><span>A</span></td>
+                  </tr>
+                  
+                  <div class="row">
+                    <div class="col-4">
+                      <a href="/monitor/write/6515/1" id="btnUkljU6" class="btn btn-danger">U upotrebi</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6516/0" id="btnRucMod6" class="btn btn-warning">Ručni mod</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6517/1" id="btnRucU6" class="btn btn-primary">Uključi grejač</a>
+                    </div>
+                  </div>
+
+                  <br>
+
+                  <div class="row">
+                    <div class="col-4">
+                      <a href="/monitor/write/6515/0" id="btnIskljU6" class="btn btn-danger">Van upotrebe</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6516/1" id="btnAutoMod6" class="btn btn-warning">Auto mod</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6517/0" id="btnRucI6" class="btn btn-primary">Isključi grejač</a>
+                    </div>
+                  </div>
+
+                  <br>
+                  
+                </tbody>
+              </table>
+              
+              <table>
+                <tbody>
+                  <tr>
+                    <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Nominalna struja" id="nomVred6"></th>
+                    <td style='text-align:center; vertical-align:middle'><a class="btn btn-danger" href="/monitor/write_r/10034/" onclick="{
+              
+                      var inputVal = document.getElementById('nomVred6').value;
+                      
+                      location.href = this.href + inputVal; return false;
+                      
+                      }"> Pošalji </a></td>
+                  </tr>
+                </tbody>
+            </table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div id="antena1">
+          <div class="card text-center" style="width: 18rem;">
+            <img class="card-img-top" id = "imgPlace7" src="/nemaradio.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Grejač antene 7</h5>
+              <h5>NI4194  Donji Milanovac</h5>
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th scope="row">Status:</th>
+                    <td id = "statusGrejaca7"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Režim:</th>
+                    <td id = "rezimGrejaca7"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Stanje:</th>
+                    <td id = "stanjeGrejaca7"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Struja:</th>
+                    <td><span id = "strujagrejaca7"></span><span>A</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Napon:</th>
+                    <td><span id = "napongrejaca7"></span><span>V</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Nominalna struja:</th>
+                    <td><span id = "nnv7"></span><span>A</span></td>
+                  </tr>
+                  
+                  <div class="row">
+                    <div class="col-4">
+                      <a href="/monitor/write/6523/1" id="btnUkljU7" class="btn btn-danger">U upotrebi</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6524/0" id="btnRucMod7" class="btn btn-warning">Ručni mod</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6525/1" id="btnRucU7" class="btn btn-primary">Uključi grejač</a>
+                    </div>
+                  </div>
+
+                  <br>
+
+                  <div class="row">
+                    <div class="col-4">
+                      <a href="/monitor/write/6523/0" id="btnIskljU7" class="btn btn-danger">Van upotrebe</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6524/1" id="btnAutoMod7" class="btn btn-warning">Auto mod</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6525/0" id="btnRucI7" class="btn btn-primary">Isključi grejač</a>
+                    </div>
+                  </div>
+
+                  <br>
+
+                </tbody>
+              </table>
+              
+              <table>
+                <tbody>
+                  <tr>
+                    <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Nominalna struja" id="nomVred7"></th>
+                    <td style='text-align:center; vertical-align:middle'><a class="btn btn-danger" href="/monitor/write_r/10035/" onclick="{
+              
+                      var inputVal = document.getElementById('nomVred7').value;
+                      
+                      location.href = this.href + inputVal; return false;
+                      
+                      }"> Pošalji </a></td>
+                  </tr>
+                </tbody>
+            </table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div id="antena1">
+          <div class="card text-center" style="width: 18rem;">
+            <img class="card-img-top" id = "imgPlace8" src="/nemaradio.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Grejač antene 8</h5>
+              <h5>NI4081  Bor1</h5>
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th scope="row">Status:</th>
+                    <td id = "statusGrejaca8"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Režim:</th>
+                    <td id = "rezimGrejaca8"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Stanje:</th>
+                    <td id = "stanjeGrejaca8"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Struja:</th>
+                    <td><span id = "strujagrejaca8"></span><span>A</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Napon:</th>
+                    <td><span id = "napongrejaca8"></span><span>V</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Nominalna struja:</th>
+                    <td><span id = "nnv8"></span><span>A</span></td>
+                  </tr>
+                  
+                  <div class="row">
+                    <div class="col-4">
+                      <a href="/monitor/write/6531/1" id="btnUkljU8" class="btn btn-danger">U upotrebi</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6532/0" id="btnRucMod8" class="btn btn-warning">Ručni mod</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6533/1" id="btnRucU8" class="btn btn-primary">Uključi grejač</a>
+                    </div>
+                  </div>
+
+                  <br>
+
+                  <div class="row">
+                    <div class="col-4">
+                      <a href="/monitor/write/6531/0" id="btnIskljU8" class="btn btn-danger">Van upotrebe</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6532/1" id="btnAutoMod8" class="btn btn-warning">Auto mod</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6533/0" id="btnRucI8" class="btn btn-primary">Isključi grejač</a>
+                    </div>
+                  </div>
+
+                  <br>
+
+                </tbody>
+              </table>
+              
+              <table>
+                <tbody>
+                  <tr>
+                    <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Nominalna struja" id="nomVred8"></th>
+                    <td style='text-align:center; vertical-align:middle'><a class="btn btn-danger" href="/monitor/write_r/10036/" onclick="{
+              
+                      var inputVal = document.getElementById('nomVred8').value;
+                      
+                      location.href = this.href + inputVal; return false;
+                      
+                      }"> Pošalji </a></td>
+                  </tr>
+                </tbody>
+            </table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div id="antena1">
+          <div class="card text-center" style="width: 18rem;">
+            <img class="card-img-top" id = "imgPlace9" src="/nemaradio.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Grejač antene 9</h5>
+              <h5>NI4217  Urovica</h5>
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th scope="row">Status:</th>
+                    <td id = "statusGrejaca9"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Režim:</th>
+                    <td id = "rezimGrejaca9"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Stanje:</th>
+                    <td id = "stanjeGrejaca9"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Struja:</th>
+                    <td><span id = "strujagrejaca9"></span><span>A</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Napon:</th>
+                    <td><span id = "napongrejaca9"></span><span>V</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Nominalna struja:</th>
+                    <td><span id = "nnv9"></span><span>A</span></td>
+                  </tr>
+                  
+                  <div class="row">
+                    <div class="col-4">
+                      <a href="/monitor/write/6539/1" id="btnUkljU9" class="btn btn-danger">U upotrebi</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6540/0" id="btnRucMod9" class="btn btn-warning">Ručni mod</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6541/1" id="btnRucU9" class="btn btn-primary">Uključi grejač</a>
+                    </div>
+                  </div>
+
+                  <br>
+
+                  <div class="row">
+                    <div class="col-4">
+                      <a href="/monitor/write/6539/0" id="btnIskljU9" class="btn btn-danger">Van upotrebe</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6540/1" id="btnAutoMod9" class="btn btn-warning">Auto mod</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6541/0" id="btnRucI9" class="btn btn-primary">Isključi grejač</a>
+                    </div>
+                  </div>
+
+                  <br>                  
+
+                </tbody>
+              </table>
+              
+              <table>
+                <tbody>
+                  <tr>
+                    <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Nominalna struja" id="nomVred9"></th>
+                    <td style='text-align:center; vertical-align:middle'><a class="btn btn-danger" href="/monitor/write_r/10037/" onclick="{
+              
+                      var inputVal = document.getElementById('nomVred9').value;
+                      
+                      location.href = this.href + inputVal; return false;
+                      
+                      }"> Pošalji </a></td>
+                  </tr>
+                </tbody>
+            </table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div id="antena1">
+          <div class="card text-center" style="width: 18rem;">
+            <img class="card-img-top" id = "imgPlace10" src="/nemaradio.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Grejač antene 10</h5>
+              <h5>NI7454  Tupižnica</h5>
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th scope="row">Status:</th>
+                    <td id = "statusGrejaca10"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Režim:</th>
+                    <td id = "rezimGrejaca10"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Stanje:</th>
+                    <td id = "stanjeGrejaca10"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Struja:</th>
+                    <td><span id = "strujagrejaca10"></span><span>A</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Napon:</th>
+                    <td><span id = "napongrejaca10"></span><span>V</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Nominalna struja:</th>
+                    <td><span id = "nnv10"></span><span>A</span></td>
+                  </tr>
+                  
+                  <div class="row">
+                    <div class="col-4">
+                      <a href="/monitor/write/6547/1" id="btnUkljU10" class="btn btn-danger">U upotrebi</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6548/0" id="btnRucMod10" class="btn btn-warning">Ručni mod</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6549/1" id="btnRucU10" class="btn btn-primary">Uključi grejač</a>
+                    </div>
+                  </div>
+
+                  <br>
+
+                  <div class="row">
+                    <div class="col-4">
+                      <a href="/monitor/write/6547/0" id="btnIskljU10" class="btn btn-danger">Van upotrebe</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6548/1" id="btnAutoMod10" class="btn btn-warning">Auto mod</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6549/0" id="btnRucI10" class="btn btn-primary">Isključi grejač</a>
+                    </div>
+                  </div>
+
+                  <br>
+
+                </tbody>
+              </table>
+              
+              <table>
+                <tbody>
+                  <tr>
+                    <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Nominalna struja" id="nomVred10"></th>
+                    <td style='text-align:center; vertical-align:middle'><a class="btn btn-danger" href="/monitor/write_r/10038/" onclick="{
+              
+                      var inputVal = document.getElementById('nomVred10').value;
+                      
+                      location.href = this.href + inputVal; return false;
+                      
+                      }"> Pošalji </a></td>
+                  </tr>
+                </tbody>
+            </table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div id="antena1">
+          <div class="card text-center" style="width: 18rem;">
+            <img class="card-img-top" id = "imgPlace11" src="/nemaradio.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Grejač antene 11</h5>
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th scope="row">Status:</th>
+                    <td id = "statusGrejaca11"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Režim:</th>
+                    <td id = "rezimGrejaca11"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Stanje:</th>
+                    <td id = "stanjeGrejaca11"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Struja:</th>
+                    <td><span id = "strujagrejaca11"></span><span>A</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Napon:</th>
+                    <td><span id = "napongrejaca11"></span><span>V</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Nominalna struja:</th>
+                    <td><span id = "nnv11"></span><span>A</span></td>
+                  </tr>
+                  
+                  <div class="row">
+                    <div class="col-4">
+                      <a href="/monitor/write/6555/1" id="btnUkljU11" class="btn btn-danger">U upotrebi</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6556/0" id="btnRucMod11" class="btn btn-warning">Ručni mod</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6557/1" id="btnRucU11" class="btn btn-primary">Uključi grejač</a>
+                    </div>
+                  </div>
+
+                  <br>
+
+                  <div class="row">
+                    <div class="col-4">
+                      <a href="/monitor/write/6555/0" id="btnIskljU11" class="btn btn-danger">Van upotrebe</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6556/1" id="btnAutoMod11" class="btn btn-warning">Auto mod</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6557/0" id="btnRucI11" class="btn btn-primary">Isključi grejač</a>
+                    </div>
+                  </div>
+
+                  <br>
+
+                </tbody>
+              </table>
+              
+              <table>
+                <tbody>
+                  <tr>
+                    <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Nominalna struja" id="nomVred11"></th>
+                    <td style='text-align:center; vertical-align:middle'><a class="btn btn-danger" href="/monitor/write_r/10039/" onclick="{
+              
+                      var inputVal = document.getElementById('nomVred11').value;
+                      
+                      location.href = this.href + inputVal; return false;
+                      
+                      }"> Pošalji </a></td>
+                  </tr>
+                </tbody>
+            </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div id="antena1">
+          <div class="card text-center" style="width: 18rem;">
+            <img class="card-img-top" id = "imgPlace12" src="/nemaradio.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Grejač antene 12</h5>
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th scope="row">Status:</th>
+                    <td id = "statusGrejaca12"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Režim:</th>
+                    <td id = "rezimGrejaca12"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Stanje:</th>
+                    <td id = "stanjeGrejaca12"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Struja:</th>
+                    <td><span id = "strujagrejaca12"></span><span>A</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Napon:</th>
+                    <td><span id = "napongrejaca12"></span><span>V</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Nominalna struja:</th>
+                    <td><span id = "nnv12"></span><span>A</span></td>
+                  </tr>
+
+                  <div class="row">
+                    <div class="col-4">
+                      <a href="/monitor/write/6563/1" id="btnUkljU12" class="btn btn-danger">U upotrebi</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6564/0" id="btnRucMod12" class="btn btn-warning">Ručni mod</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6565/1" id="btnRucU12" class="btn btn-primary">Uključi grejač</a>
+                    </div>
+                  </div>
+
+                  <br>
+
+                  <div class="row">
+                    <div class="col-4">
+                      <a href="/monitor/write/6563/0" id="btnIskljU12" class="btn btn-danger">Van upotrebe</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6564/1" id="btnAutoMod12" class="btn btn-warning">Auto mod</a>
+                    </div>
+                    <div class="col-4">
+                      <a href="/monitor/write/6565/0" id="btnRucI12" class="btn btn-primary">Isključi grejač</a>
+                    </div>
+                  </div>
+
+                  <br>
+
+                </tbody>
+              </table>
+              
+              <table>
+                <tbody>
+                  <tr>
+                    <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Nominalna struja" id="nomVred12"></th>
+                    <td style='text-align:center; vertical-align:middle'><a class="btn btn-danger" href="/monitor/write_r/10040/" onclick="{
+              
+                      var inputVal = document.getElementById('nomVred12').value;
+                      
+                      location.href = this.href + inputVal; return false;
+                      
+                      }"> Pošalji </a></td>
+                  </tr>
+                </tbody>
+            </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Antene -->
+      
+    
+
+    
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+
+  function disablujDugme(dugme){
+    document.getElementById(dugme).style.pointerEvents = "none"
+    document.getElementById(dugme).style.background = "rgb(242, 242, 242)"
+    document.getElementById(dugme).style.border = "rgb(242, 242, 242)"
+    document.getElementById(dugme).style.color = "black"
+  }
+
+
+
+  document.addEventListener('DOMContentLoaded', () => {       //Ceka i updejtuje dom elemente 
+
+    //Ocitavanje stalno ukupnog napona i spoljsnje temperature
+    setInterval(()=>{
+	    axios.get('http://10.13.204.3:8080/state').then(function(result){
+               
+               //Sis. ocitavanje
+               document.getElementById('spoljasnjaTemp').innerHTML = result.data["spoljasnja_temp"];
+               
+               //Ormani/Proveri
+               if(result.data["ospoljasnjaTempUorm"] < -270){
+                document.getElementById('spoljasnjaTempUorm').innerHTML = '';
+               }else{
+                document.getElementById('spoljasnjaTempUorm').innerHTML = result.data["ospoljasnjaTempUorm"];
+               }
+
+               if(result.data["otestMer"] < -270){
+                document.getElementById('testMer').innerHTML = '';
+               }else{
+                document.getElementById('testMer').innerHTML = result.data["otestMer"];
+               }
+               
+               
+
+               //Gornja, donja
+               document.getElementById('outGornjaT').innerHTML = result.data["oGornja"];
+               document.getElementById('outDonjaT').innerHTML = result.data["oDonja"];
+               document.getElementById('outHist').innerHTML = result.data["oHist"];
+
+               document.getElementById('outSat').innerHTML = result.data["oSat"];
+               document.getElementById('outRadMin').innerHTML = result.data["oRadMin"];
+
+               //Napon123
+               document.getElementById("oNap1").innerHTML = result.data["napongrejaca_1"];
+               document.getElementById("oNap2").innerHTML = result.data["napongrejaca_2"];
+               document.getElementById("oNap3").innerHTML = result.data["napongrejaca_3"];
+               
+         
+            }).catch(function(error){
+               console.log(error);
+            });
+	  },1000)
+
+    setInterval(()=>{
+    axios.get('http://10.13.204.3:8080/state').then(function (result) {
+      
+      //Grejac 1
+      if(result.data['strujagrejaca_1st'] == 1){  //u UPOTREBI
+        document.getElementById("statusGrejaca1").innerHTML = 'U upotrebi';
+        document.getElementById("imgPlace1").setAttribute("src","/radio.png");
+        document.getElementById('nnv1').innerHTML = result.data["oNom1"];
+        document.getElementById("strujagrejaca1").innerHTML = result.data["strujagrejaca_1"];
+        document.getElementById("napongrejaca1").innerHTML = result.data["napongrejaca_1"];
+        
+
+        if(result.data['strujagrejaca_1stA'] == 1){ //RUCNO / AUTOMACKI
+          document.getElementById("rezimGrejaca1").innerHTML = 'Auto';
+          disablujDugme("btnRucI1");
+          disablujDugme("btnRucU1");
+          
+        }else if(result.data['strujagrejaca_1stA'] == 0){
+          document.getElementById("rezimGrejaca1").innerHTML = 'Rucno';
+        }
+
+        if(result.data['strujagrejaca_1rucno'] == 1){ //uKLJUCENA RUCNO
+          document.getElementById("stanjeGrejaca1").innerHTML = 'Ukljucen';
+        }else if(result.data['strujagrejaca_1rucno'] == 0){
+          document.getElementById("stanjeGrejaca1").innerHTML = 'Iskljucen';
+        }
+        
+      }else if(result.data['strujagrejaca_1st'] == 0){
+        document.getElementById("statusGrejaca1").innerHTML = 'Nije u upotrebi';
+        document.getElementById("rezimGrejaca1").innerHTML = '';
+        document.getElementById("stanjeGrejaca1").innerHTML = '';
+        document.getElementById("strujagrejaca1").innerHTML = '';
+        document.getElementById("napongrejaca1").innerHTML = '';
+        document.getElementById('nnv1').innerHTML = '';
+      }
+
+
+
+
+      //Grejac 2
+      if(result.data['strujagrejaca_2st'] == 1){  //u UPOTREBI
+        document.getElementById("statusGrejaca2").innerHTML = 'U upotrebi';
+        document.getElementById("imgPlace2").setAttribute("src","/radio.png");
+        document.getElementById('nnv2').innerHTML = result.data["oNom2"];
+        document.getElementById("strujagrejaca2").innerHTML = result.data["strujagrejaca_2"];
+        document.getElementById("napongrejaca2").innerHTML = result.data["napongrejaca_2"];
+
+        if(result.data['strujagrejaca_2stA'] == 1){ //RUCNO / AUTOMACKI
+          document.getElementById("rezimGrejaca2").innerHTML = 'Auto';
+          disablujDugme("btnRucI2");
+          disablujDugme("btnRucU2");
+          
+        }else if(result.data['strujagrejaca_2stA'] == 0){
+          document.getElementById("rezimGrejaca2").innerHTML = 'Rucno';
+        }
+
+        if(result.data['strujagrejaca_2rucno'] == 1){ //uKLJUCENA RUCNO
+          document.getElementById("stanjeGrejaca2").innerHTML = 'Ukljucen';
+        }else if(result.data['strujagrejaca_2rucno'] == 0){
+          document.getElementById("stanjeGrejaca2").innerHTML = 'Iskljucen';
+        }
+        
+      }else if(result.data['strujagrejaca_2st'] == 0){
+        document.getElementById("statusGrejaca2").innerHTML = 'Nije u upotrebi';
+        document.getElementById("rezimGrejaca2").innerHTML = '';
+        document.getElementById("stanjeGrejaca2").innerHTML = '';
+        document.getElementById("strujagrejaca2").innerHTML = '';
+        document.getElementById("napongrejaca2").innerHTML = '';
+        document.getElementById('nnv2').innerHTML = '';
+      }
+
+
+      //Grejac 3
+      if(result.data['strujagrejaca_3st'] == 1){  //u UPOTREBI
+        document.getElementById("statusGrejaca3").innerHTML = 'U upotrebi';
+        document.getElementById("imgPlace3").setAttribute("src","/radio.png");
+        document.getElementById('nnv3').innerHTML = result.data["oNom3"];
+        document.getElementById("strujagrejaca3").innerHTML = result.data["strujagrejaca_3"];
+        document.getElementById("napongrejaca3").innerHTML = result.data["napongrejaca_3"];
+
+        if(result.data['strujagrejaca_3stA'] == 1){ //RUCNO / AUTOMACKI
+          document.getElementById("rezimGrejaca3").innerHTML = 'Auto';
+          disablujDugme("btnRucI3");
+          disablujDugme("btnRucU3");
+          
+        }else if(result.data['strujagrejaca_3stA'] == 0){
+          document.getElementById("rezimGrejaca3").innerHTML = 'Rucno';
+        }
+
+        if(result.data['strujagrejaca_3rucno'] == 1){ //uKLJUCENA RUCNO
+          document.getElementById("stanjeGrejaca3").innerHTML = 'Ukljucen';
+        }else if(result.data['strujagrejaca_3rucno'] == 0){
+          document.getElementById("stanjeGrejaca3").innerHTML = 'Iskljucen';
+        }
+        
+      }else if(result.data['strujagrejaca_3st'] == 0){
+        document.getElementById("statusGrejaca3").innerHTML = 'Nije u upotrebi';
+        document.getElementById("rezimGrejaca3").innerHTML = '';
+        document.getElementById("stanjeGrejaca3").innerHTML = '';
+        document.getElementById("strujagrejaca3").innerHTML = '';
+        document.getElementById("napongrejaca3").innerHTML = '';
+        document.getElementById('nnv3').innerHTML = '';
+      }
+
+
+      //Grejac 4
+      if(result.data['strujagrejaca_4st'] == 1){  //u UPOTREBI
+        document.getElementById("statusGrejaca4").innerHTML = 'U upotrebi';
+        document.getElementById("imgPlace4").setAttribute("src","/radio.png");
+        document.getElementById('nnv4').innerHTML = result.data["oNom4"];
+        document.getElementById("strujagrejaca4").innerHTML = result.data["strujagrejaca_4"];
+        document.getElementById("napongrejaca4").innerHTML = result.data["napongrejaca_4"];
+
+        if(result.data['strujagrejaca_4stA'] == 1){ //RUCNO / AUTOMACKI
+          document.getElementById("rezimGrejaca4").innerHTML = 'Auto';
+          disablujDugme("btnRucI4");
+          disablujDugme("btnRucU4");
+          
+        }else if(result.data['strujagrejaca_4stA'] == 0){
+          document.getElementById("rezimGrejaca4").innerHTML = 'Rucno';
+        }
+
+        if(result.data['strujagrejaca_4rucno'] == 1){ //uKLJUCENA RUCNO
+          document.getElementById("stanjeGrejaca4").innerHTML = 'Ukljucen';
+        }else if(result.data['strujagrejaca_4rucno'] == 0){
+          document.getElementById("stanjeGrejaca4").innerHTML = 'Iskljucen';
+        }
+        
+      }else if(result.data['strujagrejaca_4st'] == 0){
+        document.getElementById("statusGrejaca4").innerHTML = 'Nije u upotrebi';
+        document.getElementById("rezimGrejaca4").innerHTML = '';
+        document.getElementById("stanjeGrejaca4").innerHTML = '';
+        document.getElementById("strujagrejaca4").innerHTML = '';
+        document.getElementById("napongrejaca4").innerHTML = '';
+        document.getElementById('nnv4').innerHTML = '';
+      }
+
+      //Grejac 5
+      if(result.data['strujagrejaca_5st'] == 1){  //u UPOTREBI
+        document.getElementById("statusGrejaca5").innerHTML = 'U upotrebi';
+        document.getElementById("imgPlace5").setAttribute("src","/radio.png");
+        document.getElementById('nnv5').innerHTML = result.data["oNom5"];
+        document.getElementById("strujagrejaca5").innerHTML = result.data["strujagrejaca_5"];
+        document.getElementById("napongrejaca5").innerHTML = result.data["napongrejaca_5"];
+
+        if(result.data['strujagrejaca_5stA'] == 1){ //RUCNO / AUTOMACKI
+          document.getElementById("rezimGrejaca5").innerHTML = 'Auto';
+          disablujDugme("btnRucI5");
+          disablujDugme("btnRucU5");
+          
+        }else if(result.data['strujagrejaca_5stA'] == 0){
+          document.getElementById("rezimGrejaca5").innerHTML = 'Rucno';
+        }
+
+        if(result.data['strujagrejaca_5rucno'] == 1){ //uKLJUCENA RUCNO
+          document.getElementById("stanjeGrejaca5").innerHTML = 'Ukljucen';
+        }else if(result.data['strujagrejaca_5rucno'] == 0){
+          document.getElementById("stanjeGrejaca5").innerHTML = 'Iskljucen';
+        }
+        
+      }else if(result.data['strujagrejaca_5st'] == 0){
+        document.getElementById("statusGrejaca5").innerHTML = 'Nije u upotrebi';
+        document.getElementById("rezimGrejaca5").innerHTML = '';
+        document.getElementById("stanjeGrejaca5").innerHTML = '';
+        document.getElementById("strujagrejaca5").innerHTML = '';
+        document.getElementById("napongrejaca5").innerHTML = '';
+        document.getElementById('nnv5').innerHTML = '';
+      }
+
+      //Grejac 6
+      if(result.data['strujagrejaca_6st'] == 1){  //u UPOTREBI
+        document.getElementById("statusGrejaca6").innerHTML = 'U upotrebi';
+        document.getElementById("imgPlace6").setAttribute("src","/radio.png");
+        document.getElementById('nnv6').innerHTML = result.data["oNom6"];
+        document.getElementById("strujagrejaca6").innerHTML = result.data["strujagrejaca_6"];
+        document.getElementById("napongrejaca6").innerHTML = result.data["napongrejaca_6"];
+
+        if(result.data['strujagrejaca_6stA'] == 1){ //RUCNO / AUTOMACKI
+          document.getElementById("rezimGrejaca6").innerHTML = 'Auto';
+          disablujDugme("btnRucI6");
+          disablujDugme("btnRucU6");
+          
+        }else if(result.data['strujagrejaca_6stA'] == 0){
+          document.getElementById("rezimGrejaca6").innerHTML = 'Rucno';
+        }
+
+        if(result.data['strujagrejaca_6rucno'] == 1){ //uKLJUCENA RUCNO
+          document.getElementById("stanjeGrejaca6").innerHTML = 'Ukljucen';
+        }else if(result.data['strujagrejaca_6rucno'] == 0){
+          document.getElementById("stanjeGrejaca6").innerHTML = 'Iskljucen';
+        }
+        
+      }else if(result.data['strujagrejaca_6st'] == 0){
+        document.getElementById("statusGrejaca6").innerHTML = 'Nije u upotrebi';
+        document.getElementById("rezimGrejaca6").innerHTML = '';
+        document.getElementById("stanjeGrejaca6").innerHTML = '';
+        document.getElementById("strujagrejaca6").innerHTML = '';
+        document.getElementById("napongrejaca6").innerHTML = '';
+        document.getElementById('nnv6').innerHTML = '';
+      }
+
+      //Grejac 7
+      if(result.data['strujagrejaca_7st'] == 1){  //u UPOTREBI
+        document.getElementById("statusGrejaca7").innerHTML = 'U upotrebi';
+        document.getElementById("imgPlace7").setAttribute("src","/radio.png");
+        document.getElementById('nnv7').innerHTML = result.data["oNom7"];
+        document.getElementById("strujagrejaca7").innerHTML = result.data["strujagrejaca_7"];
+        document.getElementById("napongrejaca7").innerHTML = result.data["napongrejaca_7"];
+
+        if(result.data['strujagrejaca_7stA'] == 1){ //RUCNO / AUTOMACKI
+          document.getElementById("rezimGrejaca7").innerHTML = 'Auto';
+          disablujDugme("btnRucI7");
+          disablujDugme("btnRucU7");
+          
+        }else if(result.data['strujagrejaca_7stA'] == 0){
+          document.getElementById("rezimGrejaca7").innerHTML = 'Rucno';
+        }
+
+        if(result.data['strujagrejaca_7rucno'] == 1){ //uKLJUCENA RUCNO
+          document.getElementById("stanjeGrejaca7").innerHTML = 'Ukljucen';
+        }else if(result.data['strujagrejaca_7rucno'] == 0){
+          document.getElementById("stanjeGrejaca7").innerHTML = 'Iskljucen';
+        }
+        
+      }else if(result.data['strujagrejaca_7st'] == 0){
+        document.getElementById("statusGrejaca7").innerHTML = 'Nije u upotrebi';
+        document.getElementById("rezimGrejaca7").innerHTML = '';
+        document.getElementById("stanjeGrejaca7").innerHTML = '';
+        document.getElementById("strujagrejaca7").innerHTML = '';
+        document.getElementById("napongrejaca7").innerHTML = '';
+        document.getElementById('nnv7').innerHTML = '';
+      }
+
+
+      //Grejac 8
+      if(result.data['strujagrejaca_8st'] == 1){  //u UPOTREBI
+        document.getElementById("statusGrejaca8").innerHTML = 'U upotrebi';
+        document.getElementById("imgPlace8").setAttribute("src","/radio.png");
+        document.getElementById('nnv8').innerHTML = result.data["oNom8"];
+        document.getElementById("strujagrejaca8").innerHTML = result.data["strujagrejaca_8"];
+        document.getElementById("napongrejaca8").innerHTML = result.data["napongrejaca_8"];
+
+        if(result.data['strujagrejaca_8stA'] == 1){ //RUCNO / AUTOMACKI
+          document.getElementById("rezimGrejaca8").innerHTML = 'Auto';
+          disablujDugme("btnRucI8");
+          disablujDugme("btnRucU8");
+          
+        }else if(result.data['strujagrejaca_8stA'] == 0){
+          document.getElementById("rezimGrejaca8").innerHTML = 'Rucno';
+        }
+
+        if(result.data['strujagrejaca_8rucno'] == 1){ //uKLJUCENA RUCNO
+          document.getElementById("stanjeGrejaca8").innerHTML = 'Ukljucen';
+        }else if(result.data['strujagrejaca_8rucno'] == 0){
+          document.getElementById("stanjeGrejaca8").innerHTML = 'Iskljucen';
+        }
+        
+      }else if(result.data['strujagrejaca_8st'] == 0){
+        document.getElementById("statusGrejaca8").innerHTML = 'Nije u upotrebi';
+        document.getElementById("rezimGrejaca8").innerHTML = '';
+        document.getElementById("stanjeGrejaca8").innerHTML = '';
+        document.getElementById("strujagrejaca8").innerHTML = '';
+        document.getElementById("napongrejaca8").innerHTML = '';
+        document.getElementById('nnv8').innerHTML = '';
+      }
+
+
+      //Grejac 9
+      if(result.data['strujagrejaca_9st'] == 1){  //u UPOTREBI
+        document.getElementById("statusGrejaca9").innerHTML = 'U upotrebi';
+        document.getElementById("imgPlace9").setAttribute("src","/radio.png");
+        document.getElementById('nnv9').innerHTML = result.data["oNom9"];
+        document.getElementById("strujagrejaca9").innerHTML = result.data["strujagrejaca_9"];
+        document.getElementById("napongrejaca9").innerHTML = result.data["napongrejaca_9"];
+
+        if(result.data['strujagrejaca_9stA'] == 1){ //RUCNO / AUTOMACKI
+          document.getElementById("rezimGrejaca9").innerHTML = 'Auto';
+          disablujDugme("btnRucI9");
+          disablujDugme("btnRucU9");
+          
+        }else if(result.data['strujagrejaca_9stA'] == 0){
+          document.getElementById("rezimGrejaca9").innerHTML = 'Rucno';
+        }
+
+        if(result.data['strujagrejaca_9rucno'] == 1){ //uKLJUCENA RUCNO
+          document.getElementById("stanjeGrejaca9").innerHTML = 'Ukljucen';
+        }else if(result.data['strujagrejaca_9rucno'] == 0){
+          document.getElementById("stanjeGrejaca9").innerHTML = 'Iskljucen';
+        }
+        
+      }else if(result.data['strujagrejaca_9st'] == 0){
+        document.getElementById("statusGrejaca9").innerHTML = 'Nije u upotrebi';
+        document.getElementById("rezimGrejaca9").innerHTML = '';
+        document.getElementById("stanjeGrejaca9").innerHTML = '';
+        document.getElementById("strujagrejaca9").innerHTML = '';
+        document.getElementById("napongrejaca9").innerHTML = '';
+        document.getElementById('nnv9').innerHTML = '';
+      }
+
+
+      //Grejac 10
+      if(result.data['strujagrejaca_10st'] == 1){  //u UPOTREBI
+        document.getElementById("statusGrejaca10").innerHTML = 'U upotrebi';
+        document.getElementById("imgPlace10").setAttribute("src","/radio.png");
+        document.getElementById('nnv10').innerHTML = result.data["oNom10"];
+        document.getElementById("strujagrejaca10").innerHTML = result.data["strujagrejaca_10"];
+        document.getElementById("napongrejaca10").innerHTML = result.data["napongrejaca_10"];
+
+        if(result.data['strujagrejaca_10stA'] == 1){ //RUCNO / AUTOMACKI
+          document.getElementById("rezimGrejaca10").innerHTML = 'Auto';
+          disablujDugme("btnRucI10");
+          disablujDugme("btnRucU10");
+          
+        }else if(result.data['strujagrejaca_10stA'] == 0){
+          document.getElementById("rezimGrejaca10").innerHTML = 'Rucno';
+        }
+
+        if(result.data['strujagrejaca_10rucno'] == 1){ //uKLJUCENA RUCNO
+          document.getElementById("stanjeGrejaca10").innerHTML = 'Ukljucen';
+        }else if(result.data['strujagrejaca_10rucno'] == 0){
+          document.getElementById("stanjeGrejaca10").innerHTML = 'Iskljucen';
+        }
+        
+      }else if(result.data['strujagrejaca_10st'] == 0){
+        document.getElementById("statusGrejaca10").innerHTML = 'Nije u upotrebi';
+        document.getElementById("rezimGrejaca10").innerHTML = '';
+        document.getElementById("stanjeGrejaca10").innerHTML = '';
+        document.getElementById("strujagrejaca10").innerHTML = '';
+        document.getElementById("napongrejaca10").innerHTML = '';
+        document.getElementById('nnv10').innerHTML = '';
+      }
+
+
+      //Grejac 11
+      if(result.data['strujagrejaca_11st'] == 1){  //u UPOTREBI
+        document.getElementById("statusGrejaca11").innerHTML = 'U upotrebi';
+        document.getElementById("imgPlace11").setAttribute("src","/radio.png");
+        document.getElementById('nnv11').innerHTML = result.data["oNom11"];
+        document.getElementById("strujagrejaca11").innerHTML = result.data["strujagrejaca_11"];
+        document.getElementById("napongrejaca11").innerHTML = result.data["napongrejaca_11"];
+
+        if(result.data['strujagrejaca_11stA'] == 1){ //RUCNO / AUTOMACKI
+          document.getElementById("rezimGrejaca11").innerHTML = 'Auto';
+          disablujDugme("btnRucI11");
+          disablujDugme("btnRucU11");
+          
+        }else if(result.data['strujagrejaca_11stA'] == 0){
+          document.getElementById("rezimGrejaca11").innerHTML = 'Rucno';
+        }
+
+        if(result.data['strujagrejaca_11rucno'] == 1){ //uKLJUCENA RUCNO
+          document.getElementById("stanjeGrejaca11").innerHTML = 'Ukljucen';
+        }else if(result.data['strujagrejaca_11rucno'] == 0){
+          document.getElementById("stanjeGrejaca11").innerHTML = 'Iskljucen';
+        }
+        
+      }else if(result.data['strujagrejaca_11st'] == 0){
+        document.getElementById("statusGrejaca11").innerHTML = 'Nije u upotrebi';
+        document.getElementById("rezimGrejaca11").innerHTML = '';
+        document.getElementById("stanjeGrejaca11").innerHTML = '';
+        document.getElementById("strujagrejaca11").innerHTML = '';
+        document.getElementById("napongrejaca11").innerHTML = '';
+        document.getElementById('nnv11').innerHTML = '';
+      }
+
+
+      //Grejac 12
+      if(result.data['strujagrejaca_12st'] == 1){  //u UPOTREBI
+        document.getElementById("statusGrejaca12").innerHTML = 'U upotrebi';
+        document.getElementById("imgPlace12").setAttribute("src","/radio.png");
+        document.getElementById('nnv12').innerHTML = result.data["oNom12"];
+        document.getElementById("strujagrejaca12").innerHTML = result.data["strujagrejaca_12"];
+        document.getElementById("napongrejaca12").innerHTML = result.data["napongrejaca_12"];
+
+        if(result.data['strujagrejaca_12stA'] == 1){ //RUCNO / AUTOMACKI
+          document.getElementById("rezimGrejaca12").innerHTML = 'Auto';
+          disablujDugme("btnRucI12");
+          disablujDugme("btnRucU12");
+          
+        }else if(result.data['strujagrejaca_12stA'] == 0){
+          document.getElementById("rezimGrejaca12").innerHTML = 'Rucno';
+        }
+
+        if(result.data['strujagrejaca_12rucno'] == 1){ //uKLJUCENA RUCNO
+          document.getElementById("stanjeGrejaca12").innerHTML = 'Ukljucen';
+        }else if(result.data['strujagrejaca_12rucno'] == 0){
+          document.getElementById("stanjeGrejaca12").innerHTML = 'Iskljucen';
+        }
+        
+      }else if(result.data['strujagrejaca_12st'] == 0){
+        document.getElementById("statusGrejaca12").innerHTML = 'Nije u upotrebi';
+        document.getElementById("rezimGrejaca12").innerHTML = '';
+        document.getElementById("stanjeGrejaca12").innerHTML = '';
+        document.getElementById("strujagrejaca12").innerHTML = '';
+        document.getElementById("napongrejaca12").innerHTML = '';
+        document.getElementById('nnv12').innerHTML = '';
+      }
+
+        
+        //==================================================================================
+
+    }).catch(function (error) {
+        console.error(error);
+    });
+},1000);
+})
+
+</script>
+
+<style>
+
+  @media (max-width: 405px) {
+      .col{
+        margin-left: 35px;
+      }
+  }
+
+  @media (max-width: 360px) {
+      .col{
+        margin-left: 35px;
+      }
+  }
+
+  @media (min-width: 370px) {
+      .col{
+        margin-left: 50px;
+      }
+  }
+
+  #link1, #link2, #link3{
+    margin-left: 17px;
+  }
+
+  .card-img-top{
+    width: 180px;
+    margin-left: 19%;
+  }
+
+  .card{
+    margin-bottom: 10%;
+  }
+    
+  #odjavalink{
+    color: red;
+  }
+</style>
+
+
