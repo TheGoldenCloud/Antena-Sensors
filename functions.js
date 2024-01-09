@@ -264,8 +264,4 @@ function is_set(x, n) {
     return (((x>>n) % 2 != 0) ? 1 : 0);
 }
 
-module.exports.getLoggedInUser = getLoggedInUser;
-module.exports.loadConfiguredUsers = loadConfiguredUsers;
-module.exports.saveConfiguredUsers = saveConfiguredUsers;
-module.exports.getPasswordHash = getPasswordHash;
-module.exports.getSystemStateFromStdout = getSystemStateFromStdout;
+module.exports = { getLoggedInUser, loadConfiguredUsers, saveConfiguredEmails, getPasswordHash, getSystemStateFromStdout }
