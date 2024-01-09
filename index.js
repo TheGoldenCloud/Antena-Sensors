@@ -83,8 +83,6 @@ app.post('/login',(req,res)=>{
     let username_ = req.body.username_input;
     // let pass_ = func.getPasswordHash(req.body.pass_input);
     let pass_ = req.body.pass_input;
-
-    // let temp_user = users.find(x => x.username == username_ && x.password == func.getPasswordHash(req.body.pass_input));
     let temp_user = users.find(x => x.username == username_ && x.password == pass_);  //req.body.pass_input
     req.session.user = username_;   //Saving user to session storage
 
@@ -121,7 +119,7 @@ app.post('/save_users', (req, res) => {
     var user = func.getLoggedInUser(req);
     if (user) {
         var userlist = req.body.userlist;
-        func.saveConfiguredUsers("./users/allusers.json", userlist);    //Relativna putanja...
+        func.saveConfiguredUsers("./users/allusers.json", userlist);
         users = func.loadConfiguredUsers("./users/allusers.json");
         res.sendFile(__dirname + '/public/korisnici.html')
     } else {
@@ -177,10 +175,7 @@ app.get('/monitor/write/:field/:value', (req, res) => {
 
 app.get('/monitor/write_r/:field/:value', (req, res) => {
     var user = func.getLoggedInUser(req);
-     //var status = 5;
-     //if (req.query.status) {
-      //   status = req.query.status;
-    // }
+
      if (user) {
         var subprocess = exec("/opt/IMP-RTU/bin/field_set -b " + req.params.field + " -s " + 1 +" -d -v " + req.params.value, (error, stdout, stderr) => {
             console.log(req.params.field)
