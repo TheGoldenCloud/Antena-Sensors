@@ -1,0 +1,41 @@
+@media (max-width: 405px) {
+    .col{
+      margin-left: 35px;
+    }
+}
+
+@media (max-width: 360px) {
+    .col{
+      margin-left: 35px;
+    }
+}
+
+@media (min-width: 370px) {
+    .col{
+      margin-left: 50px;
+    }
+}
+
+#link1, #link2, #link3{
+  margin-left: 17px;
+}
+
+.card-img-top{
+  width: 180px;
+  margin-left: 19%;
+}
+
+.card{
+  margin-bottom: 10%;
+}
+  
+#odjavalink{
+  color: red;
+}
+
+.antennas{
+  position: relative;
+  left: 10%;
+  top: 50%;
+  transform: translate(50,50);
+}
