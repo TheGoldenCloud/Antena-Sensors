@@ -1,0 +1,56 @@
+
+#loginform{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+}
+
+.title{
+    padding: 0px;
+}
+
+#logintitle{
+    position: absolute;
+    left: 50%;
+    top: -25%;
+    transform: translate(-50%);
+}
+
+#buttonsubmit{
+    margin-left: 0px;
+    position: absolute;
+    left: 50%;
+    width: 200px;
+    transform: translate(-50%);
+}
+
+@media (max-width: 580px) {
+
+    #logintitle{
+        padding: 0px;
+        font-size: medium;
+          
+    }
+
+    input::placeholder{
+        font: 12px/3 sans-serif;
+    }
+
+    #buttonsubmit{
+        position: relative;
+        left: 25%;
+        width: 60%;
+    }
+
+    .title{
+        padding: 0px;
+        font-size: smaller;
+    }
+}
+
+a{
+    position: absolute;
+    right: 1%;
+}
