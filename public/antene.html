@@ -179,1064 +179,445 @@
     <br>
     <!-- Antene -->
 
-    <div class="row">
-      <div class="col">
-        <div id="antena1">
-          <div class="card text-center" style="width: 18rem;">
-            <img class="card-img-top" id = "imgPlace1" src="/nemaradio.png" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Grejač antene 1</h5>
-              <h5>NI4093  Rudna glava</h5>
-              <table class="table table-bordered">
-                <tbody>
-              
-                  <tr> 
-                    <th scope="row">Status:</th>
-                    <td id = "statusGrejaca1"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Režim:</th>
-                    <td id = "rezimGrejaca1"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Stanje:</th>
-                    <td id = "stanjeGrejaca1"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Struja:</th>
-                    <td><span id = "strujagrejaca1"></span><span>A</span></td>
-                  </tr>
-                  
-                  <tr>
-                    <th scope="row">Napon:</th>
-                    <td><span id = "napongrejaca1"></span><span>V</span></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Nominalna struja:</th>
-                    <td><span id = "nnv1"></span><span>A</span></td>
-                  </tr>
+    <div class="antennas">
 
-
-                  <div class="row"> 
-                    <div class="col-4">
-                      <a href="/monitor/write/6475/1" id="btnUkljU1" class="btn btn-danger">U upotrebi</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6476/0" id="btnRucMod1" class="btn btn-warning">Ručni mod</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6477/1" id="btnRucU1" class="btn btn-primary">Uključi grejač</a>
-                    </div>
-                  </div>
-
-                  <br>
-
-                  <div class="row">
-                    <div class="col-4">
-                      <a href="/monitor/write/6475/0" id="btnIskljU1" class="btn btn-danger">Van upotrebe</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6476/1" id="btnAutoMod1" class="btn btn-warning">Auto mod</a>
-                    </div> 
-                    <div class="col-4">
-                      <a href="/monitor/write/6477/0" id="btnRucI1" class="btn btn-primary">Isključi grejač</a>
-                    </div>
+      <div class="row">
+        <div class="col-2">
+  
+          <div id="antena1">
+            <div class="card text-center" style="width: 18rem;">
+              <img class="card-img-top" id = "imgPlace1" src="/radio.png" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Grejač antene 1</h5>
+                <h5>NI4093  Rudna glava</h5>
+  
+                <table class="table table-bordered">
+                  <tbody>
+                
+                    <tr> 
+                      <th>
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                          <label class="form-check-label" for="flexSwitchCheckChecked">Uključi grejač</label>
+                        </div>
+                      </th>
+                    </tr>
+  
+                    <tr> 
+                      <th>
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                          <label class="form-check-label" for="flexSwitchCheckChecked">U upotrebi</label>
+                        </div>
+                      </th>
+                    </tr>
+  
+                    <tr> 
+                      <th>
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                          <label class="form-check-label" for="flexSwitchCheckChecked">Ručni mod/Auto mod</label>
+                        </div>
+                      </th>
+                    </tr>
+  
+  
+                  </tbody>
+                </table>
+  
+  
+  
+                <table class="table table-bordered">
+                  <tbody>
+                
+                    <tr> 
+                      <th scope="row">Status:</th>
+                      <td id = "statusGrejaca1">ON</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Režim:</th>
+                      <td id = "rezimGrejaca1">Rucni</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Stanje:</th>
+                      <td id = "stanjeGrejaca1">Ukljucen</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Struja:</th>
+                      <td><span id = "strujagrejaca1">2.7</span><span>A</span></td>
+                    </tr>
                     
-                  </div>
-                  <br>
-                </tbody>
-              </table>
-
-              
-
-              <table>
-                <tbody>
-                  <tr>
-                    <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Nominalna struja" id="nomVred1"></th>
-                    <td style='text-align:center; vertical-align:middle'><a class="btn btn-danger" href="/monitor/write_r/10029/" onclick="{
-              
-                      var inputVal = document.getElementById('nomVred1').value;
-                      
-                      location.href = this.href + inputVal; return false;
-                      
-                      }"> Pošalji </a></td>
-                  </tr>
-                </tbody>
-            </table>
-              
-
+                    <tr>
+                      <th scope="row">Napon:</th>
+                      <td><span id = "napongrejaca1">10.3</span><span>V</span></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Nominalna struja:</th>
+                      <td><span id = "nnv1"></span>20<span>A</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+  
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Nominalna struja" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-danger" type="button" id="button-addon2">Pošalji</button>
+              </div>
+                
+  
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-2">
+          <div id="antena1">
+            <div class="card text-center" style="width: 18rem;">
+              <img class="card-img-top" id = "imgPlace1" src="/nemaradio.png" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Grejač antene 2</h5>
+                <h5>NI7454  Tipuznica</h5>
+  
+                <table class="table table-bordered">
+                  <tbody>
+                
+                    <tr> 
+                      <th>
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                          <label class="form-check-label" for="flexSwitchCheckChecked">Uključi grejač</label>
+                        </div>
+                      </th>
+                    </tr>
+  
+                    <tr> 
+                      <th>
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                          <label class="form-check-label" for="flexSwitchCheckChecked">U upotrebi</label>
+                        </div>
+                      </th>
+                    </tr>
+  
+                    <tr> 
+                      <th>
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                          <label class="form-check-label" for="flexSwitchCheckChecked">Ručni mod/Auto mod</label>
+                        </div>
+                      </th>
+                    </tr>
+  
+  
+                  </tbody>
+                </table>
+  
+  
+  
+                <table class="table table-bordered">
+                  <tbody>
+                
+                    <tr> 
+                      <th scope="row">Status:</th>
+                      <td id = "statusGrejaca1">OFF</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Režim:</th>
+                      <td id = "rezimGrejaca1">Auto</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Stanje:</th>
+                      <td id = "stanjeGrejaca1">Iskljucen</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Struja:</th>
+                      <td><span id = "strujagrejaca1">0</span><span>A</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <th scope="row">Napon:</th>
+                      <td><span id = "napongrejaca1">0</span><span>V</span></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Nominalna struja:</th>
+                      <td><span id = "nnv1">0</span><span>A</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+  
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Nominalna struja" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-danger" type="button" id="button-addon2">Pošalji</button>
+              </div>
+                
+  
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+  
+          <div id="antena1">
+            <div class="card text-center" style="width: 18rem;">
+              <img class="card-img-top" id = "imgPlace1" src="/radio.png" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Grejač antene 3</h5>
+                <h5>NI4092 Majdanpek</h5>
+  
+                <table class="table table-bordered">
+                  <tbody>
+                
+                    <tr> 
+                      <th>
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                          <label class="form-check-label" for="flexSwitchCheckChecked">Uključi grejač</label>
+                        </div>
+                      </th>
+                    </tr>
+  
+                    <tr> 
+                      <th>
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                          <label class="form-check-label" for="flexSwitchCheckChecked">U upotrebi</label>
+                        </div>
+                      </th>
+                    </tr>
+  
+                    <tr> 
+                      <th>
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                          <label class="form-check-label" for="flexSwitchCheckChecked">Ručni mod/Auto mod</label>
+                        </div>
+                      </th>
+                    </tr>
+  
+  
+                  </tbody>
+                </table>
+  
+  
+  
+                <table class="table table-bordered">
+                  <tbody>
+                
+                    <tr> 
+                      <th scope="row">Status:</th>
+                      <td id = "statusGrejaca1">ON</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Režim:</th>
+                      <td id = "rezimGrejaca1">Auto</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Stanje:</th>
+                      <td id = "stanjeGrejaca1">Iskljucen</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Struja:</th>
+                      <td><span id = "strujagrejaca1">1.9</span><span>A</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <th scope="row">Napon:</th>
+                      <td><span id = "napongrejaca1">15.1</span><span>V</span></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Nominalna struja:</th>
+                      <td><span id = "nnv1">92.0</span><span>A</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+  
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Nominalna struja" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-danger" type="button" id="button-addon2">Pošalji</button>
+              </div>
+                
+  
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+  
+          <div id="antena1">
+            <div class="card text-center" style="width: 18rem;">
+              <img class="card-img-top" id = "imgPlace1" src="/radio.png" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Grejač antene 4</h5>
+                <h5>NI4081  Bor 1</h5>
+  
+                <table class="table table-bordered">
+                  <tbody>
+                
+                    <tr> 
+                      <th>
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                          <label class="form-check-label" for="flexSwitchCheckChecked">Uključi grejač</label>
+                        </div>
+                      </th>
+                    </tr>
+  
+                    <tr> 
+                      <th>
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                          <label class="form-check-label" for="flexSwitchCheckChecked">U upotrebi</label>
+                        </div>
+                      </th>
+                    </tr>
+  
+                    <tr> 
+                      <th>
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                          <label class="form-check-label" for="flexSwitchCheckChecked">Ručni mod/Auto mod</label>
+                        </div>
+                      </th>
+                    </tr>
+  
+  
+                  </tbody>
+                </table>
+  
+  
+  
+                <table class="table table-bordered">
+                  <tbody>
+                
+                    <tr> 
+                      <th scope="row">Status:</th>
+                      <td id = "statusGrejaca1">ON</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Režim:</th>
+                      <td id = "rezimGrejaca1">Rucni</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Stanje:</th>
+                      <td id = "stanjeGrejaca1">Ukljucen</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Struja:</th>
+                      <td><span id = "strujagrejaca1">3.2</span><span>A</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <th scope="row">Napon:</th>
+                      <td><span id = "napongrejaca1">14.8</span><span>V</span></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Nominalna struja:</th>
+                      <td><span id = "nnv1">29.1</span><span>A</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+  
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Nominalna struja" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-danger" type="button" id="button-addon2">Pošalji</button>
+              </div>
+                
+  
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-2">
+  
+          <div id="antena1">
+            <div class="card text-center" style="width: 18rem;">
+              <img class="card-img-top" id = "imgPlace1" src="/nemaradio.png" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Grejač antene 5</h5>
+                <h5>NI4101  Mihajlovac</h5>
+  
+                <table class="table table-bordered">
+                  <tbody>
+                
+                    <tr> 
+                      <th>
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                          <label class="form-check-label" for="flexSwitchCheckChecked">Uključi grejač</label>
+                        </div>
+                      </th>
+                    </tr>
+  
+                    <tr> 
+                      <th>
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                          <label class="form-check-label" for="flexSwitchCheckChecked">U upotrebi</label>
+                        </div>
+                      </th>
+                    </tr>
+  
+                    <tr> 
+                      <th>
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                          <label class="form-check-label" for="flexSwitchCheckChecked">Ručni mod/Auto mod</label>
+                        </div>
+                      </th>
+                    </tr>
+  
+  
+                  </tbody>
+                </table>
+  
+  
+  
+                <table class="table table-bordered">
+                  <tbody>
+                
+                    <tr> 
+                      <th scope="row">Status:</th>
+                      <td id = "statusGrejaca1">OFF</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Režim:</th>
+                      <td id = "rezimGrejaca1">Rucni</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Stanje:</th>
+                      <td id = "stanjeGrejaca1">Iskljucen</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Struja:</th>
+                      <td><span id = "strujagrejaca1">0</span><span>A</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <th scope="row">Napon:</th>
+                      <td><span id = "napongrejaca1">0</span><span>V</span></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Nominalna struja:</th>
+                      <td><span id = "nnv1">0</span><span>A</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+  
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Nominalna struja" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-danger" type="button" id="button-addon2">Pošalji</button>
+              </div>
+                
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="col">
-        <div id="antena1">
-          <div class="card text-center" style="width: 18rem;">
-            <img class="card-img-top" id = "imgPlace2" src="/nemaradio.png" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Grejač antene 2</h5>
-              <h5>NI7454  Tupižnica</h5>
-              <table class="table table-bordered">
-                <tbody>
-                  <tr>
-                    <th scope="row">Status:</th>
-                    <td id = "statusGrejaca2"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Režim:</th>
-                    <td id = "rezimGrejaca2"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Stanje:</th>
-                    <td id = "stanjeGrejaca2"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Struja:</th>
-                    <td><span id = "strujagrejaca2"></span><span>A</span></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Napon:</th>
-                    <td><span id = "napongrejaca2"></span><span>V</span></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Nominalna struja:</th>
-                    <td><span id = "nnv2"></span><span>A</span></td>
-                  </tr>
-
-
-                  <div class="row">
-                    <div class="col-4">
-                      <a href="/monitor/write/6483/1" id="btnUkljU2" class="btn btn-danger">U upotrebi</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6484/0" id="btnRucMod2" class="btn btn-warning">Ručni mod</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6485/1" id="btnRucU2" class="btn btn-primary">Uključi grejač</a>
-                    </div>
-                  </div>
-
-                  <br>
-
-                  <div class="row">
-                    <div class="col-4">
-                      <a href="/monitor/write/6483/0" id="btnIskljU2" class="btn btn-danger">Van upotrebe</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6484/1" id="btnAutoMod2" class="btn btn-warning">Auto mod</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6485/0" id="btnRucI2" class="btn btn-primary">Isključi grejač</a>
-                    </div>
-                  </div>
-                  <br>
-
-
-                </tbody>
-              </table>
-              <!-- <div class="row"> 
-                <div class="col-12">
-                  <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Nominalna struja" id = "inputNom2" aria-describedby="basic-addon2">
-                    <button class="input-group-text" id="btnNom2">Pošalji</button>
-                  </div>
-                </div>
-              </div> -->
-
-              <table>
-                <tbody>
-                  <tr>
-                    <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Nominalna struja" id="nomVred2"></th>
-                    <td style='text-align:center; vertical-align:middle'><a class="btn btn-danger" href="/monitor/write_r/10030/" onclick="{
-              
-                      var inputVal = document.getElementById('nomVred2').value;
-                      
-                      location.href = this.href + inputVal; return false;
-                      
-                      }"> Pošalji </a></td>
-                  </tr>
-                </tbody>
-            </table>
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div id="antena1">
-          <div class="card text-center" style="width: 18rem;">
-            <img class="card-img-top" id = "imgPlace3" src="/nemaradio.png" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Grejač antene 3</h5>
-              <h5>NI4092  Majdanpek</h5>
-              <table class="table table-bordered">
-                <tbody>
-                  <tr>
-                    <th scope="row">Status:</th>
-                    <td id = "statusGrejaca3"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Režim:</th>
-                    <td id = "rezimGrejaca3"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Stanje:</th>
-                    <td id = "stanjeGrejaca3"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Struja:</th>
-                    <td><span id = "strujagrejaca3"></span><span>A</span></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Napon:</th>
-                    <td><span id = "napongrejaca3"></span><span>V</span></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Nominalna struja:</th>
-                    <td><span id = "nnv3"></span><span>A</span></td>
-                  </tr>
-
-                  <div class="row">
-                    <div class="col-4">
-                      <a href="/monitor/write/6491/1" id="btnUkljU3" class="btn btn-danger">U upotrebi</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6492/0" id="btnRucMod3" class="btn btn-warning">Ručni mod</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6493/1" id="btnRucU3" class="btn btn-primary">Uključi grejač</a>
-                    </div>
-                  </div>
-
-                  <br>
-
-                  <div class="row">
-                    <div class="col-4">
-                      <a href="/monitor/write/6491/0" id="btnIskljU3" class="btn btn-danger">Van upotrebe</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6492/1" id="btnAutoMod3" class="btn btn-warning">Auto mod</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6493/0" id="btnRucI3" class="btn btn-primary">Isključi grejač</a>
-                    </div>
-                  </div>
-
-
-                  <br>
-
-                  
-                </tbody>
-              </table>
-              <!-- <div class="row"> 
-                <div class="col-12">
-                  <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Nominalna struja" id = "inputNom3" aria-describedby="basic-addon2">
-                    <button class="input-group-text" id="btnNom3">Pošalji</button>
-                  </div>
-                </div>
-              </div> -->
-              <table>
-                <tbody>
-                  <tr>
-                    <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Nominalna struja" id="nomVred3"></th>
-                    <td style='text-align:center; vertical-align:middle'><a class="btn btn-danger" href="/monitor/write_r/10031/" onclick="{
-              
-                      var inputVal = document.getElementById('nomVred3').value;
-                      
-                      location.href = this.href + inputVal; return false;
-                      
-                      }"> Pošalji </a></td>
-                  </tr>
-                </tbody>
-            </table>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div id="antena1">
-          <div class="card text-center" style="width: 18rem;">
-            <img class="card-img-top" id = "imgPlace4" src="/nemaradio.png" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Grejač antene 4</h5>
-              <h5>NI4081  Bor1</h5>
-              <table class="table table-bordered">
-                <tbody>
-                  <tr>
-                    <th scope="row">Status:</th>
-                    <td id = "statusGrejaca4"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Režim:</th>
-                    <td id = "rezimGrejaca4"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Stanje:</th>
-                    <td id = "stanjeGrejaca4"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Struja:</th>
-                    <td><span id = "strujagrejaca4"></span><span>A</span></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Napon:</th>
-                    <td><span id = "napongrejaca4"></span><span>V</span></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Nominalna struja:</th>
-                    <td><span id = "nnv4"></span><span>A</span></td>
-                  </tr>
-                  
-                  <div class="row">
-                    <div class="col-4">
-                      <a href="/monitor/write/6499/1" id="btnUkljU4" class="btn btn-danger">U upotrebi</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6500/0" id="btnRucMod4" class="btn btn-warning">Ručni mod</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6501/1" id="btnRucU4" class="btn btn-primary">Uključi grejač</a>
-                    </div>
-                  </div>
-
-                  <br>
-
-                  <div class="row">
-                    <div class="col-4">
-                      <a href="/monitor/write/6499/0" id="btnIskljU4" class="btn btn-danger">Van upotrebe</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6500/1" id="btnAutoMod4" class="btn btn-warning">Auto mod</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6501/0" id="btnRucI4" class="btn btn-primary">Isključi grejač</a>
-                    </div>
-                  </div>
-
-                  <br>
-
-                </tbody>
-              </table>
-
-              <!-- <div class="row"> 
-                <div class="col-12">
-                  <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Nominalna struja" id = "inputNom4" aria-describedby="basic-addon2">
-                    <button class="input-group-text" id="btnNom4">Pošalji</button>
-                  </div>
-                </div>
-              </div> -->
-
-              <table>
-                <tbody>
-                  <tr>
-                    <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Nominalna struja" id="nomVred4"></th>
-                    <td style='text-align:center; vertical-align:middle'><a class="btn btn-danger" href="/monitor/write_r/10032/" onclick="{
-              
-                      var inputVal = document.getElementById('nomVred4').value;
-                      
-                      location.href = this.href + inputVal; return false;
-                      
-                      }"> Pošalji </a></td>
-                  </tr>
-                </tbody>
-            </table>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      
+  
     </div>
-
-    <div class="row">
-      <div class="col">
-        <div id="antena1">
-          <div class="card text-center" style="width: 18rem;">
-            <img class="card-img-top" id = "imgPlace5" src="/nemaradio.png" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Grejač antene 5</h5>
-              <h5>NI4101  Mihajlovac</h5>
-              <table class="table table-bordered">
-                <tbody>
-                  <tr>
-                    <th scope="row">Status:</th>
-                    <td id = "statusGrejaca5"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Režim:</th>
-                    <td id = "rezimGrejaca5"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Stanje:</th>
-                    <td id = "stanjeGrejaca5"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Struja:</th>
-                    <td><span id = "strujagrejaca5"></span><span>A</span></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Napon:</th>
-                    <td><span id = "napongrejaca5"></span><span>V</span></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Nominalna struja:</th>
-                    <td><span id = "nnv5"></span><span>A</span></td>
-                  </tr>
-                  
-                  <div class="row">
-                    <div class="col-4">
-                      <a href="/monitor/write/6507/1" id="btnUkljU5" class="btn btn-danger">U upotrebi</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6508/0" id="btnRucMod5" class="btn btn-warning">Ručni mod</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6509/1" id="btnRucU5" class="btn btn-primary">Uključi grejač</a>
-                    </div>
-                  </div>
-
-                  <br>
-
-                  <div class="row">
-                    <div class="col-4">
-                      <a href="/monitor/write/6507/0" id="btnIskljU5" class="btn btn-danger">Van upotrebe</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6508/1" id="btnAutoMod5" class="btn btn-warning">Auto mod</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6509/0" id="btnRucI5" class="btn btn-primary">Isključi grejač</a>
-                    </div>
-                  </div>
-
-                  <br>
-
-                </tbody>
-              </table>
-
-              <!-- <div class="row"> 
-                <div class="col-12">
-                  <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Nominalna struja" id = "inputNom5" aria-describedby="basic-addon2">
-                    <button class="input-group-text" id="btnNom5">Pošalji</button>
-                  </div>
-                </div>
-              </div> -->
-              <table>
-                <tbody>
-                  <tr>
-                    <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Nominalna struja" id="nomVred5"></th>
-                    <td style='text-align:center; vertical-align:middle'><a class="btn btn-danger" href="/monitor/write_r/10033/" onclick="{
-              
-                      var inputVal = document.getElementById('nomVred5').value;
-                      
-                      location.href = this.href + inputVal; return false;
-                      
-                      }"> Pošalji </a></td>
-                  </tr>
-                </tbody>
-            </table>
+  
 
 
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div id="antena1">
-          <div class="card text-center" style="width: 18rem;">
-            <img class="card-img-top" id = "imgPlace6" src="/nemaradio.png" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Grejač antene 6</h5>
-              <h5>NI4304  Debeli lug</h5>
-              <table class="table table-bordered">
-                <tbody>
-                  <tr>
-                    <th scope="row">Status:</th>
-                    <td id = "statusGrejaca6"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Režim:</th>
-                    <td id = "rezimGrejaca6"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Stanje:</th>
-                    <td id = "stanjeGrejaca6"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Struja:</th>
-                    <td><span id = "strujagrejaca6"></span><span>A</span></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Napon:</th>
-                    <td><span id = "napongrejaca6"></span><span>V</span></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Nominalna struja:</th>
-                    <td><span id = "nnv6"></span><span>A</span></td>
-                  </tr>
-                  
-                  <div class="row">
-                    <div class="col-4">
-                      <a href="/monitor/write/6515/1" id="btnUkljU6" class="btn btn-danger">U upotrebi</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6516/0" id="btnRucMod6" class="btn btn-warning">Ručni mod</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6517/1" id="btnRucU6" class="btn btn-primary">Uključi grejač</a>
-                    </div>
-                  </div>
-
-                  <br>
-
-                  <div class="row">
-                    <div class="col-4">
-                      <a href="/monitor/write/6515/0" id="btnIskljU6" class="btn btn-danger">Van upotrebe</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6516/1" id="btnAutoMod6" class="btn btn-warning">Auto mod</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6517/0" id="btnRucI6" class="btn btn-primary">Isključi grejač</a>
-                    </div>
-                  </div>
-
-                  <br>
-                  
-                </tbody>
-              </table>
-              
-              <table>
-                <tbody>
-                  <tr>
-                    <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Nominalna struja" id="nomVred6"></th>
-                    <td style='text-align:center; vertical-align:middle'><a class="btn btn-danger" href="/monitor/write_r/10034/" onclick="{
-              
-                      var inputVal = document.getElementById('nomVred6').value;
-                      
-                      location.href = this.href + inputVal; return false;
-                      
-                      }"> Pošalji </a></td>
-                  </tr>
-                </tbody>
-            </table>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div id="antena1">
-          <div class="card text-center" style="width: 18rem;">
-            <img class="card-img-top" id = "imgPlace7" src="/nemaradio.png" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Grejač antene 7</h5>
-              <h5>NI4194  Donji Milanovac</h5>
-              <table class="table table-bordered">
-                <tbody>
-                  <tr>
-                    <th scope="row">Status:</th>
-                    <td id = "statusGrejaca7"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Režim:</th>
-                    <td id = "rezimGrejaca7"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Stanje:</th>
-                    <td id = "stanjeGrejaca7"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Struja:</th>
-                    <td><span id = "strujagrejaca7"></span><span>A</span></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Napon:</th>
-                    <td><span id = "napongrejaca7"></span><span>V</span></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Nominalna struja:</th>
-                    <td><span id = "nnv7"></span><span>A</span></td>
-                  </tr>
-                  
-                  <div class="row">
-                    <div class="col-4">
-                      <a href="/monitor/write/6523/1" id="btnUkljU7" class="btn btn-danger">U upotrebi</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6524/0" id="btnRucMod7" class="btn btn-warning">Ručni mod</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6525/1" id="btnRucU7" class="btn btn-primary">Uključi grejač</a>
-                    </div>
-                  </div>
-
-                  <br>
-
-                  <div class="row">
-                    <div class="col-4">
-                      <a href="/monitor/write/6523/0" id="btnIskljU7" class="btn btn-danger">Van upotrebe</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6524/1" id="btnAutoMod7" class="btn btn-warning">Auto mod</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6525/0" id="btnRucI7" class="btn btn-primary">Isključi grejač</a>
-                    </div>
-                  </div>
-
-                  <br>
-
-                </tbody>
-              </table>
-              
-              <table>
-                <tbody>
-                  <tr>
-                    <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Nominalna struja" id="nomVred7"></th>
-                    <td style='text-align:center; vertical-align:middle'><a class="btn btn-danger" href="/monitor/write_r/10035/" onclick="{
-              
-                      var inputVal = document.getElementById('nomVred7').value;
-                      
-                      location.href = this.href + inputVal; return false;
-                      
-                      }"> Pošalji </a></td>
-                  </tr>
-                </tbody>
-            </table>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div id="antena1">
-          <div class="card text-center" style="width: 18rem;">
-            <img class="card-img-top" id = "imgPlace8" src="/nemaradio.png" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Grejač antene 8</h5>
-              <h5>NI4081  Bor1</h5>
-              <table class="table table-bordered">
-                <tbody>
-                  <tr>
-                    <th scope="row">Status:</th>
-                    <td id = "statusGrejaca8"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Režim:</th>
-                    <td id = "rezimGrejaca8"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Stanje:</th>
-                    <td id = "stanjeGrejaca8"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Struja:</th>
-                    <td><span id = "strujagrejaca8"></span><span>A</span></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Napon:</th>
-                    <td><span id = "napongrejaca8"></span><span>V</span></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Nominalna struja:</th>
-                    <td><span id = "nnv8"></span><span>A</span></td>
-                  </tr>
-                  
-                  <div class="row">
-                    <div class="col-4">
-                      <a href="/monitor/write/6531/1" id="btnUkljU8" class="btn btn-danger">U upotrebi</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6532/0" id="btnRucMod8" class="btn btn-warning">Ručni mod</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6533/1" id="btnRucU8" class="btn btn-primary">Uključi grejač</a>
-                    </div>
-                  </div>
-
-                  <br>
-
-                  <div class="row">
-                    <div class="col-4">
-                      <a href="/monitor/write/6531/0" id="btnIskljU8" class="btn btn-danger">Van upotrebe</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6532/1" id="btnAutoMod8" class="btn btn-warning">Auto mod</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6533/0" id="btnRucI8" class="btn btn-primary">Isključi grejač</a>
-                    </div>
-                  </div>
-
-                  <br>
-
-                </tbody>
-              </table>
-              
-              <table>
-                <tbody>
-                  <tr>
-                    <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Nominalna struja" id="nomVred8"></th>
-                    <td style='text-align:center; vertical-align:middle'><a class="btn btn-danger" href="/monitor/write_r/10036/" onclick="{
-              
-                      var inputVal = document.getElementById('nomVred8').value;
-                      
-                      location.href = this.href + inputVal; return false;
-                      
-                      }"> Pošalji </a></td>
-                  </tr>
-                </tbody>
-            </table>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col">
-        <div id="antena1">
-          <div class="card text-center" style="width: 18rem;">
-            <img class="card-img-top" id = "imgPlace9" src="/nemaradio.png" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Grejač antene 9</h5>
-              <h5>NI4217  Urovica</h5>
-              <table class="table table-bordered">
-                <tbody>
-                  <tr>
-                    <th scope="row">Status:</th>
-                    <td id = "statusGrejaca9"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Režim:</th>
-                    <td id = "rezimGrejaca9"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Stanje:</th>
-                    <td id = "stanjeGrejaca9"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Struja:</th>
-                    <td><span id = "strujagrejaca9"></span><span>A</span></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Napon:</th>
-                    <td><span id = "napongrejaca9"></span><span>V</span></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Nominalna struja:</th>
-                    <td><span id = "nnv9"></span><span>A</span></td>
-                  </tr>
-                  
-                  <div class="row">
-                    <div class="col-4">
-                      <a href="/monitor/write/6539/1" id="btnUkljU9" class="btn btn-danger">U upotrebi</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6540/0" id="btnRucMod9" class="btn btn-warning">Ručni mod</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6541/1" id="btnRucU9" class="btn btn-primary">Uključi grejač</a>
-                    </div>
-                  </div>
-
-                  <br>
-
-                  <div class="row">
-                    <div class="col-4">
-                      <a href="/monitor/write/6539/0" id="btnIskljU9" class="btn btn-danger">Van upotrebe</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6540/1" id="btnAutoMod9" class="btn btn-warning">Auto mod</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6541/0" id="btnRucI9" class="btn btn-primary">Isključi grejač</a>
-                    </div>
-                  </div>
-
-                  <br>                  
-
-                </tbody>
-              </table>
-              
-              <table>
-                <tbody>
-                  <tr>
-                    <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Nominalna struja" id="nomVred9"></th>
-                    <td style='text-align:center; vertical-align:middle'><a class="btn btn-danger" href="/monitor/write_r/10037/" onclick="{
-              
-                      var inputVal = document.getElementById('nomVred9').value;
-                      
-                      location.href = this.href + inputVal; return false;
-                      
-                      }"> Pošalji </a></td>
-                  </tr>
-                </tbody>
-            </table>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div id="antena1">
-          <div class="card text-center" style="width: 18rem;">
-            <img class="card-img-top" id = "imgPlace10" src="/nemaradio.png" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Grejač antene 10</h5>
-              <h5>NI7454  Tupižnica</h5>
-              <table class="table table-bordered">
-                <tbody>
-                  <tr>
-                    <th scope="row">Status:</th>
-                    <td id = "statusGrejaca10"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Režim:</th>
-                    <td id = "rezimGrejaca10"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Stanje:</th>
-                    <td id = "stanjeGrejaca10"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Struja:</th>
-                    <td><span id = "strujagrejaca10"></span><span>A</span></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Napon:</th>
-                    <td><span id = "napongrejaca10"></span><span>V</span></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Nominalna struja:</th>
-                    <td><span id = "nnv10"></span><span>A</span></td>
-                  </tr>
-                  
-                  <div class="row">
-                    <div class="col-4">
-                      <a href="/monitor/write/6547/1" id="btnUkljU10" class="btn btn-danger">U upotrebi</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6548/0" id="btnRucMod10" class="btn btn-warning">Ručni mod</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6549/1" id="btnRucU10" class="btn btn-primary">Uključi grejač</a>
-                    </div>
-                  </div>
-
-                  <br>
-
-                  <div class="row">
-                    <div class="col-4">
-                      <a href="/monitor/write/6547/0" id="btnIskljU10" class="btn btn-danger">Van upotrebe</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6548/1" id="btnAutoMod10" class="btn btn-warning">Auto mod</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6549/0" id="btnRucI10" class="btn btn-primary">Isključi grejač</a>
-                    </div>
-                  </div>
-
-                  <br>
-
-                </tbody>
-              </table>
-              
-              <table>
-                <tbody>
-                  <tr>
-                    <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Nominalna struja" id="nomVred10"></th>
-                    <td style='text-align:center; vertical-align:middle'><a class="btn btn-danger" href="/monitor/write_r/10038/" onclick="{
-              
-                      var inputVal = document.getElementById('nomVred10').value;
-                      
-                      location.href = this.href + inputVal; return false;
-                      
-                      }"> Pošalji </a></td>
-                  </tr>
-                </tbody>
-            </table>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div id="antena1">
-          <div class="card text-center" style="width: 18rem;">
-            <img class="card-img-top" id = "imgPlace11" src="/nemaradio.png" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Grejač antene 11</h5>
-              <table class="table table-bordered">
-                <tbody>
-                  <tr>
-                    <th scope="row">Status:</th>
-                    <td id = "statusGrejaca11"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Režim:</th>
-                    <td id = "rezimGrejaca11"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Stanje:</th>
-                    <td id = "stanjeGrejaca11"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Struja:</th>
-                    <td><span id = "strujagrejaca11"></span><span>A</span></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Napon:</th>
-                    <td><span id = "napongrejaca11"></span><span>V</span></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Nominalna struja:</th>
-                    <td><span id = "nnv11"></span><span>A</span></td>
-                  </tr>
-                  
-                  <div class="row">
-                    <div class="col-4">
-                      <a href="/monitor/write/6555/1" id="btnUkljU11" class="btn btn-danger">U upotrebi</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6556/0" id="btnRucMod11" class="btn btn-warning">Ručni mod</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6557/1" id="btnRucU11" class="btn btn-primary">Uključi grejač</a>
-                    </div>
-                  </div>
-
-                  <br>
-
-                  <div class="row">
-                    <div class="col-4">
-                      <a href="/monitor/write/6555/0" id="btnIskljU11" class="btn btn-danger">Van upotrebe</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6556/1" id="btnAutoMod11" class="btn btn-warning">Auto mod</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6557/0" id="btnRucI11" class="btn btn-primary">Isključi grejač</a>
-                    </div>
-                  </div>
-
-                  <br>
-
-                </tbody>
-              </table>
-              
-              <table>
-                <tbody>
-                  <tr>
-                    <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Nominalna struja" id="nomVred11"></th>
-                    <td style='text-align:center; vertical-align:middle'><a class="btn btn-danger" href="/monitor/write_r/10039/" onclick="{
-              
-                      var inputVal = document.getElementById('nomVred11').value;
-                      
-                      location.href = this.href + inputVal; return false;
-                      
-                      }"> Pošalji </a></td>
-                  </tr>
-                </tbody>
-            </table>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div id="antena1">
-          <div class="card text-center" style="width: 18rem;">
-            <img class="card-img-top" id = "imgPlace12" src="/nemaradio.png" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Grejač antene 12</h5>
-              <table class="table table-bordered">
-                <tbody>
-                  <tr>
-                    <th scope="row">Status:</th>
-                    <td id = "statusGrejaca12"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Režim:</th>
-                    <td id = "rezimGrejaca12"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Stanje:</th>
-                    <td id = "stanjeGrejaca12"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Struja:</th>
-                    <td><span id = "strujagrejaca12"></span><span>A</span></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Napon:</th>
-                    <td><span id = "napongrejaca12"></span><span>V</span></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Nominalna struja:</th>
-                    <td><span id = "nnv12"></span><span>A</span></td>
-                  </tr>
-
-                  <div class="row">
-                    <div class="col-4">
-                      <a href="/monitor/write/6563/1" id="btnUkljU12" class="btn btn-danger">U upotrebi</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6564/0" id="btnRucMod12" class="btn btn-warning">Ručni mod</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6565/1" id="btnRucU12" class="btn btn-primary">Uključi grejač</a>
-                    </div>
-                  </div>
-
-                  <br>
-
-                  <div class="row">
-                    <div class="col-4">
-                      <a href="/monitor/write/6563/0" id="btnIskljU12" class="btn btn-danger">Van upotrebe</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6564/1" id="btnAutoMod12" class="btn btn-warning">Auto mod</a>
-                    </div>
-                    <div class="col-4">
-                      <a href="/monitor/write/6565/0" id="btnRucI12" class="btn btn-primary">Isključi grejač</a>
-                    </div>
-                  </div>
-
-                  <br>
-
-                </tbody>
-              </table>
-              
-              <table>
-                <tbody>
-                  <tr>
-                    <th scope="row" style='text-align:center; vertical-align:middle'><input type="text" placeholder="Nominalna struja" id="nomVred12"></th>
-                    <td style='text-align:center; vertical-align:middle'><a class="btn btn-danger" href="/monitor/write_r/10040/" onclick="{
-              
-                      var inputVal = document.getElementById('nomVred12').value;
-                      
-                      location.href = this.href + inputVal; return false;
-                      
-                      }"> Pošalji </a></td>
-                  </tr>
-                </tbody>
-            </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
     <!-- Antene -->
       
     
@@ -1755,6 +1136,13 @@
     
   #odjavalink{
     color: red;
+  }
+
+  .antennas{
+    position: relative;
+    left: 10%;
+    top: 50%;
+    transform: translate(50,50);
   }
 </style>
 
