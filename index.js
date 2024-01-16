@@ -27,7 +27,7 @@ var systemState = {"time": new Date().toString()}
 app.use(express.urlencoded({extended: false}));
 app.use(body_parser.json())
 app.use(body_parser.urlencoded({'extended': true}))
-app.use(express.static('styles'))   //Staticke slike
+app.use(express.static('styles'))
 
 app.get('/login',(req,res)=>{
     let user = func.getLoggedInUser(req);
@@ -84,7 +84,7 @@ app.post('/login',(req,res)=>{
     // let pass_ = func.getPasswordHash(req.body.pass_input);
     let pass_ = req.body.pass_input;
     let temp_user = users.find(x => x.username == username_ && x.password == pass_);  //req.body.pass_input
-    req.session.user = username_;   //Saving user to session storage
+    req.session.user = username_;
 
     if(temp_user == undefined){
         res.sendFile(__dirname + '/public/login.html');
@@ -155,21 +155,14 @@ app.get('/state', (req, res) => {
 
 app.get('/monitor/write/:field/:value', (req, res) => {
     var user = func.getLoggedInUser(req);
-     //var status = 5;
-     //if (req.query.status) {
-      //   status = req.query.status;
-    // }
      if (user) {
-        var subprocess = exec("/opt/IMP-RTU/bin/field_set -b " + req.params.field + " -s " + 1 + " -v " + req.params.value, (error, stdout, stderr) => {
-
-        });
- 
+        var subprocess = exec("/opt/IMP-RTU/bin/field_set -b " + req.params.field + " -s " + 1 + " -v " + req.params.value, (error, stdout, stderr) => {});
      subprocess.on('exit', (code) => {
         subprocess.kill();
      });
-         res.sendFile(__dirname + '/public/antene.html')
+         res.sendFile(__dirname + '/public/antene.html');
      } else {
-         res.sendFile(__dirname + '/public/login.html')
+         res.sendFile(__dirname + '/public/login.html');
      }
 })
 
@@ -177,17 +170,13 @@ app.get('/monitor/write_r/:field/:value', (req, res) => {
     var user = func.getLoggedInUser(req);
 
      if (user) {
-        var subprocess = exec("/opt/IMP-RTU/bin/field_set -b " + req.params.field + " -s " + 1 +" -d -v " + req.params.value, (error, stdout, stderr) => {
-            console.log(req.params.field)
-            console.log(req.params.value)
-        });
- 
+        var subprocess = exec("/opt/IMP-RTU/bin/field_set -b " + req.params.field + " -s " + 1 +" -d -v " + req.params.value, (error, stdout, stderr) => {});
      subprocess.on('exit', (code) => {
         subprocess.kill();
      });
-         res.sendFile(__dirname + '/public/antene.html')
+         res.sendFile(__dirname + '/public/antene.html');
      } else {
-         res.sendFile(__dirname + '/public/login.html')
+         res.sendFile(__dirname + '/public/login.html');
      }
 })
 
@@ -211,26 +200,3 @@ app.listen(PORT,()=>{
     //subprocess1.on('exit', (code) => {subprocess.kill();});
     }, 1000);
 });
-
-/*app.get('/monitor/write/:field/:value', (req, res) => { //VIDI PARAMETRE I NASTAVI DALJE!!!
-    var user = func.getLoggedInUser(req);
-     //var status = 5;
-     //if (req.query.status) {
-      //   status = req.query.status;
-    // }
-     if (user) {
- 
-         var subprocess = exec("/opt/IMP-RTU/bin/field_set -b " + req.params.field + " -s " + 1 + " -v " + req.params.value, (error, stdout, stderr) => {
-                 console.log(req.params.field)
-                 console.log(req.params.value)
-         });
- 
-     //subprocess.on('exit', (code) => {
-       //  subprocess.kill();
-     //});
- 
-         res.sendFile(__dirname + '/public/antene.html')
-     } else {
-         res.sendFile(__dirname + '/public/login.html')
-     }
- })*/
