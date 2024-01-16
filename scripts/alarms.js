@@ -1,16 +1,6 @@
 var alarmBrS = []
 //Alam placeholder!!!
 var antene_placeholder = document.getElementById('alarmlist');
-//var antene_placeholderHist = document.getElementById('alarmlistHist');
-
-//Generisanje vremena i datuma
-// function prikaz(){
-//   let datum = new Date();
-  
-//   let vreme = datum.getHours() +":" + datum.getMinutes() +":" + datum.getSeconds();
-//   let datum_ = datum.getDate()+"/"+(datum.getMonth() + 1)+"/"+datum.getFullYear();
-//   return vreme + ", " + datum_
-// }
 
 setInterval(()=>{
 axios.get('http://10.13.204.3:8080/state').then(function(result){
@@ -20,7 +10,7 @@ antene_placeholder.innerHTML = '';
   if(result.data['AlarmiGreskeIsklj'] != undefined){
       for(let i = 0;i<= result.data['AlarmiGreskeIsklj'].length; i++){
       if(result.data['AlarmiGreskeIsklj'][i] == 1){
-        antene_placeholder.innerHTML += `<div class='card bg-warning'> <div class='card-body'>Antena ${i+1}, greška u isključenju</div></div><br>`
+        antene_placeholder.innerHTML += `<div class='card bg-warning'> <div class='card-body'>Antena ${i+1}, greška u isključenju</div></div><br>`;
         alarmBrS.push({ime:`Antena ${i+1} greška u isključenju`,vreme:prikaz()});
       }
     }
@@ -30,7 +20,7 @@ antene_placeholder.innerHTML = '';
   if(result.data['AlarmiGreskeUradu'] != undefined){
     for(let i = 0;i<= result.data['AlarmiGreskeUradu'].length;i++){
       if(result.data['AlarmiGreskeUradu'][i] == 1){
-        antene_placeholder.innerHTML += `<div class='card bg-warning'> <div class='card-body'>Antena ${i+1}, greška u radu</div><div><br>`
+        antene_placeholder.innerHTML += `<div class='card bg-warning'> <div class='card-body'>Antena ${i+1}, greška u radu</div><div><br>`;
           alarmBrS.push({ime:`Antena ${i+1} greška u radu`,vreme:prikaz()});
       }
     }
