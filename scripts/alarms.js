@@ -27,17 +27,17 @@ antene_placeholder.innerHTML = '';
   }
 
   if(result.data['AlarmGrejacist'] == 1){
-    antene_placeholder.innerHTML += `<div class='card bg-danger'> <div class='card-body'>Alarm greška grejača</div> </div><br>`
+    antene_placeholder.innerHTML += `<div class='card bg-danger'> <div class='card-body'>Alarm greška grejača</div> </div><br>`;
     alarmBrS.push({ime:"Alarm greška grejača",vreme:prikaz()});
   }
 
   if(result.data['AlarmGrejacinap'] == 1){
-    antene_placeholder.innerHTML += `<div class='card bg-danger'> <div class='card-body'>Alarm greška ukupnog napona </div></div><br>`
+    antene_placeholder.innerHTML += `<div class='card bg-danger'> <div class='card-body'>Alarm greška ukupnog napona </div></div><br>`;
     alarmBrS.push({ime:"Alarm greška ukupnog napona",vreme:prikaz()});
   }
 
   if(result.data['AlarmGrejacigreskaSis'] == 1){
-    antene_placeholder.innerHTML += `<div class='card bg-danger'> <div class='card-body'>Alarm greška sistema</div> </div><br>`
+    antene_placeholder.innerHTML += `<div class='card bg-danger'> <div class='card-body'>Alarm greška sistema</div> </div><br>`;
     alarmBrS.push({ime:"Alarm greška u radu",vreme:prikaz()});
   }
 
