@@ -34,28 +34,11 @@ function loadConfiguredUsers(configPath) {
     }
 }
 
-function loadAlarms(configPath) {
-    
+function loadAlarms(configPath) {   
     fs.accessSync(configPath);
     return JSON.parse(fs.readFileSync(configPath));
     
 }
-
-// function saveAlarms(configPath, users){
-//     var emails = '';
-//     for (var user of users){
-//         if (user.email){
-//             if (user.email.trim() !== ''){
-//                 emails += ' ' + user.email.trim();
-//             }
-//         }
-//     }
-//     emails = emails.trim();
-
-//     fs.writeFileSync(configPath, emails);
-// }
-
-
 
 function saveConfiguredEmails(configPath, users){
     var emails = '';
