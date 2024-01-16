@@ -7,6 +7,18 @@
         {
             "AlarmBr": "2",
             "Naziv": "Greška u isključenju"
+        },
+        {
+            "AlarmBr": "1",
+            "Naziv": "Alarm greška grejača"
+        },
+        {
+            "AlarmBr": "3",
+            "Naziv": "Alarm greška ukupnog napona"
+        },
+        {
+            "AlarmBr": "4",
+            "Naziv": "Alarm greška sistema"
         }
     ]
 }
