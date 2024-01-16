@@ -71,11 +71,7 @@ function removeUser(clickedBtn) {
         let usernameDel = userRow.childNodes[1].childNodes[0].getAttribute('old_username');
         let passDel = userRow.childNodes[3].childNodes[0].getAttribute('old_password')
 
-        // console.log(usernameDel);
-
-        // console.log(passDel);
-
-        let usertodelete = {username: usernameDel, password: passDel}
+        let usertodelete = {username: usernameDel, password: passDel};
 
         axios.post('/delete_user', {usertodelete}, {timeout: 1000}).then(function (result) {
             window.location.reload();
@@ -158,7 +154,7 @@ function saveState() {
                 break;
             }
 
-            local_userlist.push({username: username, password: password, email: email, is_old: is_old, old_username: old_username, old_password: old_password})
+            local_userlist.push({username: username, password: password, email: email, is_old: is_old, old_username: old_username, old_password: old_password});
         }
     }
 
