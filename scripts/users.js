@@ -3,10 +3,7 @@ var userlist = [];
 
 axios.get('/get_users', {timeout: 10000}).then(function (result) {
     let users = result.data;
-    console.log(users);
-    console.log(result);
     let el = document.getElementById('userlist');
-
     let html = '<table id="userTable" class="table" style="width:100%">' +
         '<thead>' +
         '<tr>' +
@@ -37,7 +34,6 @@ axios.get('/get_users', {timeout: 10000}).then(function (result) {
     el.innerHTML = html;
 }).catch(function (err) {
     alert('Greska pri ucitavanju korisnika zbog lose konekcije, pokusajte kasnije!');
-    console.log(err);
 });
 
 function areYouSure(event, operation) {
@@ -67,7 +63,7 @@ function removeUser(clickedBtn) {
             }
         }
 
-        //Getting userdata
+        //Uzimanje uzer podataka
         let usernameDel = userRow.childNodes[1].childNodes[0].getAttribute('old_username');
         let passDel = userRow.childNodes[3].childNodes[0].getAttribute('old_password')
 
@@ -77,7 +73,6 @@ function removeUser(clickedBtn) {
             window.location.reload();
         }).catch(function (err) {
             alert('Greska pri brisnju! Molimo pokusajte ponovo kasnije!');
-            console.log(err);
         });
 
         //
@@ -121,7 +116,7 @@ function saveState() {
                 email = email.replaceAll('  ', ' ');
             }
 
-            // If the user has no username - error
+            // Ako user nema username - error
             if (username === ''){
                 // ERROR
                 error = 'Greška! Korisnik br. ' + index + ' mora imati korisničko ime!';
@@ -133,13 +128,13 @@ function saveState() {
                 old_password = userRow.getElementsByTagName('td')[3].getElementsByTagName('input')[0].getAttribute('old_password');
             }
 
-            // If the user has no password check if it's just unchanged
+            // Ako user nema password proveri da li je samo ne promenjena
             if (password === ''){
                 if (is_old){
                     password = old_password;
                 }
             } else {
-                // New passwords must match
+                // 
                 if (password !== userRow.getElementsByTagName('td')[3].getElementsByTagName('input')[1].value.trim()){
                     // ERROR
                     error = 'Greška! Korisnik br. ' + index + ' ima lozinke koje se razlikuju!';
@@ -147,7 +142,7 @@ function saveState() {
                 }
             }
 
-            // If still no password
+            // I dalje nema password
             if (password === ''){
                 // ERROR
                 error = 'Greška! Korisnik br. ' + index + ' mora imati lozinku!';
@@ -165,7 +160,6 @@ function saveState() {
             window.location.reload();
         }).catch(function (err) {
             alert('Greska pri cuvanju! Molimo pokusajte ponovo kasnije!');
-            console.log(err);
         });
     }
 }
