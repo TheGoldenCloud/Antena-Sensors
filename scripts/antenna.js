@@ -29,10 +29,10 @@ setInterval(()=>{
             result.data["otestMer"] < -270 ? etValue('testMer','') : setValue('testMer','otestMer');
         
             //Gornja, donja
+            setValue('outSat',result.data["oSat"]);
             setValue('outGornjaT',result.data["oGornja"]);
             setValue('outDonjaT',result.data["oDonja"]);
             setValue('outHist',result.data["oHist"]);
-            setValue('outSat',result.data["oSat"]);
             setValue('outRadMin',result.data["oRadMin"]);
 
             //Napon123
@@ -51,9 +51,9 @@ axios.get('http://10.13.204.3:8080/state').then(function (result) {
     
     //Grejac 1
     if(result.data['strujagrejaca_1st'] == 1){  //U upotrebi
-        setValue('statusGrejaca1','U upotrebi');
         setImage('imgPlace1');
         setValue('nnv1',result.data["oNom1"]);
+        setValue('statusGrejaca1','U upotrebi');
         setValue('strujagrejaca1',result.data["strujagrejaca_1"]);
         setValue('napongrejaca1',result.data["napongrejaca_1"]);
     
