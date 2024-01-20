@@ -36,8 +36,7 @@ function loadConfiguredUsers(configPath) {
 
 function loadAlarms(configPath) {   
     fs.accessSync(configPath);
-    return JSON.parse(fs.readFileSync(configPath));
-    
+    return JSON.parse(fs.readFileSync(configPath));   
 }
 
 function saveConfiguredEmails(configPath, users){
