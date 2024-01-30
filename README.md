@@ -22,7 +22,7 @@
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
 <!-- <img src="/public/app.png" alt="appImg" width="300" height="500"> -->
-<img src="./public/anteneslika.png" alt="appImg" width="800" height="400">
+<img src="./public/zareadme.png" alt="appImg" width="800" height="400">
 
 This app controls and monitors heat sensors. The app controls reads and writes to PLC device so it is just for representational purpose. 
 
